@@ -151,6 +151,11 @@ public class Test {
 		
 		sDao.insert(submit);
 	}
+	
+	public static void SubmitDelete() {
+		SubmitDao sDao = new SubmitDao();
+		sDao.delete(1, 2, 3);
+	}
 	public static void main(String[] args) throws SQLException {
 		//CustomerInsertTest();
 		//CustomerDeleteTest();
@@ -163,6 +168,7 @@ public class Test {
 		//RecruitmentDeleteTest();
 		//EnterpriseInsert();
 		//SubmitInsert();
+		SubmitDelete();
 	}
 
 }

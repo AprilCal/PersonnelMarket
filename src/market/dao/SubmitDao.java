@@ -36,4 +36,28 @@ public class SubmitDao {
 			}
 		}
 	}
+	
+	public void delete(int resumeId,int enterpriseId,int recruitmentId) {
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql = "UPDATE `personnel_market`.`submit` SET `deleted`='1' WHERE"+
+					" `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, resumeId);
+			ps.setInt(2, enterpriseId);
+			ps.setInt(3, recruitmentId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
