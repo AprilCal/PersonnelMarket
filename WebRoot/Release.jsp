@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0042)flipin.html -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -56,12 +57,8 @@
                    sltCity[i+1]=new Option(provinceCity[i],provinceCity[i]);  
                  }  
                }  
-        
-  
-  
-   
- </script>  
-   
+</script>  
+
 </head>
 <body>
 
@@ -174,15 +171,13 @@
             <div class="row  clearfix">
                 <div class="span10 offset2">
                     <input type="submit" name="submit" id="submit" class="submit" style="margin-left:250px; margin-top:20px" value="发布招聘">
-                    
                 </div>
             </div>
             </form>
-            
             <div id="validation">
             </div>
         </div>
-        
     </section>
 </body>
 </html>
+
