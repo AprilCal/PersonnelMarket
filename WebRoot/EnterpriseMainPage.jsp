@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,36 +77,22 @@
   </div>
   <div class="navbar-header">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-	<h1 class="logo hvr-bounce-in"><a href="CustomerMainPage.html" title="木庄网络博客"><img src="images/logo.jpg" alt="木庄网络博客"></a></h1>
+	<h1 class="logo hvr-bounce-in"><a href="EnterpriseMainPage.html" title="木庄网络博客"><img src="images/logo.jpg" alt="木庄网络博客"></a></h1>
   </div>
   <div class="collapse navbar-collapse" id="header-navbar">
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(11)</a></li>
-	  <li><a data-cont="列表页" title="列表页" href="Resume.html">我的简历</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="DeliveredResume.html">投递箱</a></li>
-	  <li><a data-cont="404" title="404" href="Favorite.html">收藏夹</a></li>
-	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >AprilCal</a></li>
-	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯分享</a></li>
+	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(13)</a></li>
+	  <li><a data-cont="列表页" title="列表页" href="ResumeBox.html">简历箱(15)</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="MyRecruitment.html">我的招聘</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="Release.html">发布招聘</a></li>
+	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >武汉毒狼网吧</a></li>
+	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯中心</a></li>
 	</ul>
   </div>
 </div>
 </nav>
 </header>
 <section class="container">
-    <div class="widget widget_search" >
-	<form class="navbar-form" action="/Search" method="post" align="center">
-	
-	<div class="input-group">
-		
-		<input type="text" name="keyword" class="form-control" size="140" placeholder="请输入关键字" maxlength="24" autocomplete="off">
-		<span class="input-group-btn">
-		<button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-		</span> 
-		
-	</div>
-	
-	</form>
-  </div>
   
   <div class="fixed">
   <div class="widget widget-hot">
@@ -120,7 +108,7 @@
   </div>
   </div>
   </div>
-<!-- <div class="fixed">
+<div class="fixed">
   <div class="widget widget-tabs">
 	<div class="tab-content">
         <div>
@@ -136,7 +124,7 @@
 	</div>
   </div>
 </div> 
- -->
+
 <article class="excerpt excerpt-1" style="">
 	<a class="focus" href="underconstructing.html" title="enterprise title" target="_blank" >
 		<img class="thumb" data-original="images/dulang.jpg" src="images/dulang.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;">
