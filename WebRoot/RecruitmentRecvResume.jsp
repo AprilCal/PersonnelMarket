@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>投递过的简历</title>
+<title>招聘简历</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -35,7 +37,7 @@
 		<span class="icon-bar"></span> 
 		<span class="icon-bar"></span> 
 	</button>
-	<h1 class="logo hvr-bounce-in"><a href="CustomerMainPage.html" title="木庄网络博客"><img src="images/logo.jpg" alt="木庄网络博客"></a></h1>
+	<h1 class="logo hvr-bounce-in"><a href="#" title="木庄网络博客"><img src="images/logo.jpg" alt="木庄网络博客"></a></h1>
   </div>
   <div class="collapse navbar-collapse" id="header-navbar">
 	<form class="navbar-form visible-xs" action="/Search" method="post">
@@ -46,11 +48,11 @@
 		</span> </div>
 	</form>
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(11)</a></li>
-	  <li><a data-cont="列表页" title="列表页" href="Resume.html">我的简历</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="DeliveredResume.html">投递箱</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="Favorite.html">收藏夹</a></li>
-	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >AprilCal</a></li>
+	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(13)</a></li>
+	  <li><a data-cont="列表页" title="列表页" href="ResumeBox.html">简历箱(15)</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="MyRecruitment.html">我的招聘</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="Release.html">发布招聘</a></li>
+	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >武汉毒狼网吧</a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯中心</a></li>
 	</ul>
   </div>
@@ -61,7 +63,7 @@
 <div class="content-wrap">
 <div class="content">
 	<header class="article-header">
-		<h3>目前收藏的简历</h3>
+		<h3>毒狼网吧诚招网管一名</h3>
 	</header>
 	<div id="postcomments">
 	<ol id="comment_list" class="commentlist">        
@@ -69,8 +71,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href="Resume.html">投递</a>
-				<a href="#">已被接受,等待面试安排</a>
+				<span class="time">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -78,8 +81,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历<a href="Resume.html">点此查看简历</a>
-				<a href="CustomerMainPage.html">已被拒绝,再去看看其他相似岗位</a>
+				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -87,8 +91,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
+				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -96,8 +101,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
+				<span class="time">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -105,8 +111,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
+				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -114,8 +121,9 @@
 		<div class="comment-main">
 			<p>
 				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
+				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
+				<a href="#">接受</a>
+				<a href="#">拒绝</a>
 			</p>
 		</div>
 	</li>
@@ -154,4 +162,6 @@
 <script src="js/jquery.ias.js"></script>
 <script src="js/scripts.js"></script>
 </body>
+
 </html>
+
