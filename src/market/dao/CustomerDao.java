@@ -215,7 +215,7 @@ public class CustomerDao {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("��ѯ���ļ�¼����"+ret.size());
+		System.out.println("大小啊"+ret.size());
 		return ret;
 	}*/
 

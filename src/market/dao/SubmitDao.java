@@ -95,7 +95,7 @@ public class SubmitDao {
 			Submit submit=new Submit();
 			submit.setResumeId(1);
 			submit.setEnterpriseId(2);
-			submit.setRecruitmentId(2);;
+			submit.setRecruitmentId(2);
 			submit.setReadOrNot(true);
 			submit.setDeleted(false);
 			submit.setState("Accepted");

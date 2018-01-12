@@ -1,7 +1,6 @@
 package market.busi;
 
 import market.dao.EnterpriseDao;
-import market.vo.Customer;
 import market.vo.Enterprise;
 
 /**
@@ -14,46 +13,81 @@ public class EnterpriseBusi {
 	
 	private EnterpriseDao eDao = new EnterpriseDao();
 	
-	public void login(String name,String password) throws BusiException{
+	public Enterprise login(String username,String password) throws BusiException{
+		Enterprise enterprise=null;
+		enterprise=eDao.selectByName(username.trim());
+		if(enterprise==null||!enterprise.getPassword().equals(password))
+		{
+			throw new BusiException("ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯ï¼");
+			
+		}
+		if(enterprise.getPassword().equals(password))
+		{
+			return enterprise;
+		}
+		return null;
 		
 		
 	}
-	/*ÆóÒµÓÃ»§×¢²á*/
+	/*æ³¨å†Œ*/
 	public void register(Enterprise enterprise,String repassword) throws BusiException{
 		//sign up
 			//username,password,rePassword must not be null
 		if(enterprise.getEnterpriseName()==null||enterprise.getEnterpriseName().trim().isEmpty())
 		{
 				
-			throw new BusiException("ÓÃ»§Ãû²»¿ÉÒÔÎª¿Õ");
+			throw new BusiException("ç”¨æˆ·åä¸èƒ½ä¸ºç©ºï¼");
 		}
-		if(enterprise.getEnterpriseName()==null||enterprise.getEnterpriseName().trim().isEmpty())
-		{
-				
-			throw new BusiException("ÓÃ»§Ãû²»¿ÉÒÔÎª¿Õ");
-		}
+		
 	    if(enterprise.getPassword()==null||enterprise.getPassword().trim().isEmpty()) {
-				throw new BusiException("ÃÜÂë²»¿ÉÒÔÎª¿Õ");
+				throw new BusiException("å¯†ç ä¸å¯ä»¥ä¸ºç©ºï¼");
 			}
 		if(repassword==null||repassword.trim().isEmpty()) {
-				throw new BusiException("È·ÈÏÃÜÂë²»¿ÉÒÔÎª¿Õ");
+				throw new BusiException("ç¡®è®¤å¯†ç ä¸å¯ä»¥ä¸ºç©º");
 			}
 			//password equals rePassword
 		if(!repassword.equals(enterprise.getPassword())) {
-				throw new BusiException("Á½´ÎÃÜÂë²»Ò»ÖÂ");
+				throw new BusiException("ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 			}
 			//sign up success
 		eDao.insert(enterprise);
 		}
 	
-	public void modifyPassword(Enterprise enterprise,String oldPassword,String newPassword,String reNewPassword) 
-		throws BusiException{
-		
-	}
-	
+//	public void modifyPassword(Enterprise enterprise,String oldPassword,String newPassword,String reNewPassword) 
+//		throws BusiException{
+//		if(newPassword==null||newPassword.trim().isEmpty()) {
+//			throw new BusiException("æ–°å¯†ç ä¸å¯ä»¥ä¸ºç©º");
+//		}
+//		if(reNewPassword==null||reNewPassword.trim().isEmpty()){
+//			throw new BusiException("ç¡®è®¤å¯†ç ä¸å¯ä»¥ä¸ºç©º");
+//		}
+//		if(!oldPassword.equals(enterprise.getPassword())) {
+//			throw new BusiException("å¯†ç é”™è¯¯");
+//		}
+//		if(!newPassword.equals(reNewPassword)) {
+//			throw new BusiException("ç¡®è®¤å¯†ç ä¸ä¸€è‡´");
+//		}
+//		
+//		enterprise.setPassword(newPassword);
+//		eDao.update(enterprise);
+//	}
+//	
 	
 	//test
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BusiException {
+		Enterprise enterprise=new Enterprise();
+		enterprise.setEnterpriseId(1);
+		enterprise.setEnterpriseName("æ­¦æ±‰ç‹¬ç‹¼ç½‘å§");
+		enterprise.setTel("18721594283");
+		enterprise.setMessageNum(6);
+		enterprise.setResumeRecv(4);
+		enterprise.setMail("753662@163.com");
+		enterprise.setPassword("123");
+		enterprise.setDeleted(false);
+		
+		EnterpriseDao eDao = new EnterpriseDao();
+		eDao.updateById(enterprise,1);
+		
 		
 	}
 

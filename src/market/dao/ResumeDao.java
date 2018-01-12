@@ -129,7 +129,7 @@ public class ResumeDao {
 		}
 		return ret;
 	}
-	/*¸ù¾İ¸öÈËÓÃ»§ID²éÕÒËùÓĞ¼òÀú*/
+	/*æ ¹æ®ç”¨æˆ·idæŸ¥æ‰¾*/
 	public List<Resume> selectAllByCustomerId(int id){
 		Connection conn = null;
 		List<Resume> ret = new ArrayList<Resume>();
@@ -168,9 +168,9 @@ public class ResumeDao {
 //		Resume resume=new Resume();
 //		resume.setCustomerId(2);
 //		resume.setBirth("2018.1.11");
-//		resume.setEducation("½­Î÷ÄÏ²ıgoieÖĞÑ§Ñ§Ï° ");
-//		resume.setGraduate("ÖĞÄÏ´óÑ§±¾¿Æ±ÏÒµ");
-//		resume.setMajor("É¨µØÉ®");
+//		resume.setEducation("å¨æµ·è£æˆå¸‚godieä¸­å­¦");
+//		resume.setGraduate("è“ç¿”æŠ€å·¥å­¦æ ¡æ¯•ä¸š");
+//		resume.setMajor("æŒ–æ˜æœº");
 //		resume.setExperiment("c++");
 //		resume.setResumeCont("hhah");
 //		resume.setDeleted(false);

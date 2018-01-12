@@ -7,7 +7,20 @@ import market.vo.Customer;
 public class CustomerBusi {
 	private CustomerDao cDao = new CustomerDao();
 	
-	public void login() {
+	public Customer login(String username,String password) throws BusiException {
+		Customer customer=null;
+		customer=cDao.selectByName(username);
+		if(customer==null||!customer.getPassword().equals(password))
+		{
+			throw new BusiException("用户名或者密码错误！");
+			
+		}
+		if(customer.getPassword().equals(password))
+		{
+			return customer;
+		}
+		return null;
+		
 		
 	}
 	//sign up
