@@ -6,6 +6,7 @@ import java.util.List;
 import market.vo.Customer;
 import market.vo.Enterprise;
 import market.vo.Recruitment;
+import market.vo.Submit;
 
 public class Test {
 	
@@ -137,6 +138,19 @@ public class Test {
 	public static void EnterpriseDelete() {
 		
 	}
+	
+	public static void SubmitInsert() {
+		SubmitDao sDao = new SubmitDao();
+		Submit submit = new Submit();
+		submit.setResumeId(1);
+		submit.setEnterpriseId(2);
+		submit.setRecruitmentId(3);
+		submit.setReadOrNot(true);
+		submit.setDeleted(false);
+		submit.setState("refused");
+		
+		sDao.insert(submit);
+	}
 	public static void main(String[] args) throws SQLException {
 		//CustomerInsertTest();
 		//CustomerDeleteTest();
@@ -148,6 +162,7 @@ public class Test {
 		//RecruitmentSelectAll();
 		//RecruitmentDeleteTest();
 		//EnterpriseInsert();
+		//SubmitInsert();
 	}
 
 }

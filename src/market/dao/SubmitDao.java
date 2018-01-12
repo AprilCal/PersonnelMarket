@@ -16,13 +16,12 @@ public class SubmitDao {
 					"VALUES (?,?,?,?,?,?);";
 			
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, customer.getCustomerName());
-			ps.setString(2, customer.getTime());
-			ps.setString(3, customer.getPassword());
-			ps.setString(4, customer.getTel());
-			ps.setString(5, customer.getMail());
-			ps.setInt(6, customer.getMessageNum());
-			ps.setBoolean(7, customer.isDeleted());
+			ps.setInt(1, submit.getResumeId());
+			ps.setInt(2, submit.getEnterpriseId());
+			ps.setInt(3, submit.getRecruitmentId());
+			ps.setBoolean(4, submit.isReadOrNot());
+			ps.setBoolean(5, submit.isDeleted());
+			ps.setString(6, submit.getState());
 			
 			ps.executeUpdate();
 		}catch (SQLException e) {
