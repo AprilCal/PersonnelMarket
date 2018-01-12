@@ -69,7 +69,7 @@ public class CustomerBusi {
 		Customer customer = new Customer();
 		customer.setCustomerID(2);
 		customer.setCustomerName("czy");
-		customer.setPassword("123");
+		customer.setPassword("12345");
 		customer.setTime("2018/1/11");
 		customer.setTel("15527358829");
 		customer.setMail("747998045@qq.com");
@@ -78,7 +78,7 @@ public class CustomerBusi {
 		
 		CustomerBusi cBusi=new CustomerBusi();
 		try {
-			cBusi.modifyPassword(customer, "123", "1234", "1234");
+			cBusi.modifyPassword(customer, "124", "12345", "12345");
 		} catch (BusiException e) {
 			e.printStackTrace();
 		}
