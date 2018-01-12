@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javafx.css.PseudoClass;
 import market.vo.Submit;
 
 public class SubmitDao {
@@ -16,13 +17,12 @@ public class SubmitDao {
 					"VALUES (?,?,?,?,?,?);";
 			
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, customer.getCustomerName());
-			ps.setString(2, customer.getTime());
-			ps.setString(3, customer.getPassword());
-			ps.setString(4, customer.getTel());
-			ps.setString(5, customer.getMail());
-			ps.setInt(6, customer.getMessageNum());
-			ps.setBoolean(7, customer.isDeleted());
+			ps.setInt(1, submit.getResumeId());
+			ps.setInt(2, submit.getEnterpriseId());
+			ps.setInt(3, submit.getRecruitmentId());
+			ps.setBoolean(4, submit.isReadOrNot());
+			ps.setBoolean(5, submit.isDeleted());
+			ps.setString(6, submit.getState());
 			
 			ps.executeUpdate();
 		}catch (SQLException e) {
@@ -36,5 +36,68 @@ public class SubmitDao {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void delete(int resumeId,int enterpriseId,int recruitmentId) {
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql = "UPDATE `personnel_market`.`submit` SET `deleted`='1' WHERE"+
+					" `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, resumeId);
+			ps.setInt(2, enterpriseId);
+			ps.setInt(3, recruitmentId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void update(Submit submit) {
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql = "UPDATE `personnel_market`.`submit` "+
+					"SET `readornot`=?, `deleted`=?, `state`=? WHERE `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setBoolean(1, submit.isReadOrNot());
+			ps.setBoolean(2, submit.isDeleted());
+			ps.setString(3, submit.getState());
+			ps.setInt(4, submit.getResumeId());
+			ps.setInt(5, submit.getEnterpriseId());
+			ps.setInt(6, submit.getRecruitmentId());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		SubmitDao sDao = new SubmitDao();
+		Submit submit = new Submit();
+		submit.setResumeId(1);
+		submit.setEnterpriseId(2);
+		submit.setRecruitmentId(3);
+		submit.setReadOrNot(true);
+		submit.setDeleted(false);
+		submit.setState("refused");
+		//sDao.update(submit);
 	}
 }
