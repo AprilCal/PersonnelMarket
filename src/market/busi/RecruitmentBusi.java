@@ -24,13 +24,27 @@ public class RecruitmentBusi {
 	}
 	
 	public List<Recruitment> getRecruitmentByPosition(String position) throws BusiException{
-		//判断职位是否合法 待定
-		return rDao.selectByPosition(position);
+		//返回查找的职位
+		return rDao.selectByPosition(position);		
 	}
 	
+	//TODO:
+	public List<Recruitment> getRecruitmentByLocation(String province) throws BusiException{
+		return null;
+		//return rDao.selectByProvince();
+	}
 	//public List<Recruitment> getRecruitmentByLocation
 	public static void main(String[] args) {
-
+		RecruitmentBusi rBusi = new RecruitmentBusi();
+		try {
+			List<Recruitment> list = rBusi.getRecruitmentByPosition("C++");
+			for(Recruitment recruitment :list) {
+				System.out.println(recruitment);
+			}
+		} catch (BusiException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

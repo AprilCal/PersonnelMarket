@@ -3,8 +3,6 @@ package market.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import javafx.css.PseudoClass;
 import market.vo.Submit;
 
 public class SubmitDao {
