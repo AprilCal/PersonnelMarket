@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import javafx.css.PseudoClass;
+
 import market.vo.Submit;
 
 public class SubmitDao {
@@ -88,16 +88,36 @@ public class SubmitDao {
 			}
 		}
 	}
+	public static void SubmitInsertTest() {
+		try {
+			Connection connection = DBHelper.getConnection();
+			if(connection!=null) {
+				System.out.print("connect success");
+			}
+			Submit submit=new Submit();
+			submit.setResumeId(1);
+			submit.setEnterpriseId(2);
+			submit.setRecruitmentId(2);;
+			submit.setReadOrNot(true);
+			submit.setDeleted(false);
+			submit.setState("Accepted");
+			SubmitDao sdao=new SubmitDao();
+			sdao.insert(submit);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) {
-		SubmitDao sDao = new SubmitDao();
-		Submit submit = new Submit();
-		submit.setResumeId(1);
-		submit.setEnterpriseId(2);
-		submit.setRecruitmentId(3);
-		submit.setReadOrNot(true);
-		submit.setDeleted(false);
-		submit.setState("refused");
+//		SubmitDao sDao = new SubmitDao();
+//		Submit submit = new Submit();
+//		submit.setResumeId(1);
+//		submit.setEnterpriseId(2);
+//		submit.setRecruitmentId(3);
+//		submit.setReadOrNot(true);
+//		submit.setDeleted(false);
+//		submit.setState("refused");
+//		SubmitInsertTest();
 		//sDao.update(submit);
 	}
 }
