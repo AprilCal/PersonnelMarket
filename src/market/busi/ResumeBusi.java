@@ -3,8 +3,6 @@ package market.busi;
 import market.vo.Resume;
 
 public class ResumeBusi {
-
-	
 	public Resume selectResumeByID(int id) {
 		return null;
 	}
@@ -16,5 +14,6 @@ public class ResumeBusi {
 	public void delete(int id) {
 		
 	}
+	
 
 }

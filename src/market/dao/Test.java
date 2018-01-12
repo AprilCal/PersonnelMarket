@@ -6,6 +6,7 @@ import java.util.List;
 import market.vo.Customer;
 import market.vo.Enterprise;
 import market.vo.Recruitment;
+import market.vo.Resume;
 
 public class Test {
 	
@@ -76,6 +77,7 @@ public class Test {
 		CustomerDao cDao=new CustomerDao();
 		System.out.println(cDao.selectByName("yxw").toString());
 	}
+	
 
 	public static void RecruitmentInsertTest() {
 		
@@ -148,6 +150,7 @@ public class Test {
 		//RecruitmentSelectAll();
 		//RecruitmentDeleteTest();
 		//EnterpriseInsert();
+		//ResumeInsertTest();
 	}
 
 }
