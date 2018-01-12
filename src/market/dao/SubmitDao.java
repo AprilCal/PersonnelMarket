@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javafx.css.PseudoClass;
 import market.vo.Submit;
 
 public class SubmitDao {
@@ -59,5 +60,44 @@ public class SubmitDao {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void update(Submit submit) {
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql = "UPDATE `personnel_market`.`submit` "+
+					"SET `readornot`=?, `deleted`=?, `state`=? WHERE `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setBoolean(1, submit.isReadOrNot());
+			ps.setBoolean(2, submit.isDeleted());
+			ps.setString(3, submit.getState());
+			ps.setInt(4, submit.getResumeId());
+			ps.setInt(5, submit.getEnterpriseId());
+			ps.setInt(6, submit.getRecruitmentId());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		SubmitDao sDao = new SubmitDao();
+		Submit submit = new Submit();
+		submit.setResumeId(1);
+		submit.setEnterpriseId(2);
+		submit.setRecruitmentId(3);
+		submit.setReadOrNot(true);
+		submit.setDeleted(false);
+		submit.setState("refused");
+		//sDao.update(submit);
 	}
 }
