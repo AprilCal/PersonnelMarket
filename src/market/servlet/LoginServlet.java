@@ -6,24 +6,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
 
 import market.busi.BusiException;
 import market.busi.CustomerBusi;
 import market.vo.Customer;
 
+
+/**
+ * 
+ * completed by AprilCal on 2018.1.13
+ *
+ */
 public class LoginServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
-	
-	/* 
-	 * 1.判断登陆的类型
-	 * 2.get name password;
-	 * 3.busi。login(name,password);
-	 * 4.成功，alert(success)->LoadMainPageServlet
-	 * 5。失败。。。。
-	 */
 	
 	private CustomerBusi cBusi = new CustomerBusi();
 	
@@ -40,7 +36,13 @@ public class LoginServlet extends HttpServlet{
 				request.getSession().setAttribute("customer", customer);
 				request.getRequestDispatcher("CustomerMainPage.jsp").forward(request, response);
 			}
+			else {
+				request.setAttribute("msg", "用户名或密码错误");
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+			}
 		} catch (BusiException e) {
+			request.setAttribute("msg", "用户名或密码错误");
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		

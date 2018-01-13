@@ -24,9 +24,9 @@
 				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-				<%//if(request.getAttribute("msg")!=null){ %>
+				<%if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
-				<%//} %>
+				<%} %>
 				<input type="submit" class="sign-in" value="个人登录">
 				<a href="Register.html"> 注册?</a>
 				<a href="underconstraction">忘记密码?</a>
