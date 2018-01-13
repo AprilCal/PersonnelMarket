@@ -21,9 +21,9 @@
         <div id="signin-agile">
 			<form action="Login" method="post">
 				<p class="header">用户名</p>
-				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
+				<input type="text" name="name" value="请输入用户名" onfocus="if(this.value=='请输入用户名'){this.value = ''};" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
-				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="password" name="password" value="111111" onfocus="if(this.value=='111111'){this.value = ''};" onblur="if (this.value == '') {this.value = '111111';}">
 				<input type="text" name="identity" hidden="true" value="customer">
 				<%if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
@@ -36,9 +36,9 @@
 		<div id="signup-agile">
 			<form action="Login" method="post">
 				<p class="header">用户名</p>
-				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
+				<input type="text" name="name" value="请输入用户名" onfocus="if(this.value=='请输入用户名'){this.value = ''};" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
-				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="password" name="password" value="111111" onfocus="if(this.value=='111111'){this.value = ''};" onblur="if (this.value == '') {this.value = '111111';}">
 				<input type="text" name="identity" hidden="true" value="enterprise">
 				<%//if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
