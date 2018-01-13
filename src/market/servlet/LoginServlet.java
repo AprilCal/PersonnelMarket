@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet{
 			Customer customer = cBusi.login(username, password);
 			if(customer!=null) {
 				request.getSession().setAttribute("customer", customer);
-				request.getRequestDispatcher("CustomerMainPage.jsp").forward(request, response);
+				request.getRequestDispatcher("LoadCustomerMainPageServlet").forward(request, response);
 			}
 			else {
 				request.setAttribute("msg", "用户名或密码错误");
