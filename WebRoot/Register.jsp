@@ -25,47 +25,43 @@
     </ul>
     <div class="tab-content">
         <div id="signin-agile">   
-			<form action="#" method="post">
+			<form action="Register" method="post">
 				
 				<p class="header">用户名</p>
-				<input type="text" name="user" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">
-				
+				<input type="text" name="customerName" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">
 				<p class="header">电话号码</p>
-				<input type="text" name="phone" value="Your Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Phone Number';}">
+				<input type="text" name="tel" value="Your Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Phone Number';}">
 				<p class="header">邮箱</p>
-				<input type="text" name="email" value="Email@address.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email@address.com';}">
-				
+				<input type="text" name="mail" value="Email@address.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email@address.com';}">
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-				
 				<p class="header">确认密码</p>
-				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-				
-				
-				
-				<input type="submit" class="sign-in" value="Register">
-				
-				
+				<input type="password" name="rePassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="text" name="identity" hidden="true" value="customer">
+				<input type="submit" class="sign-in" value="注册">
 			</form>
 		</div>
 		<div id="signup-agile">   
 			<form action="#" method="post">
 				
+				<p class="header">用户名</p>
+				<input type="text" name="userName" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">
+				
 				<p class="header">企业名</p>
-				<input type="text" name="user" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">
+				<input type="text" name="enterpriseName" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">
 				
 				<p class="header">电话号码</p>
-				<input type="tel" name="phone" value="Your Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Phone Number';}">
+				<input type="tel" name="tel" value="Your Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Phone Number';}">
 				
 				<p class="header">邮箱</p>
-				<input type="email" name="email" value="Email@address.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email@address.com';}">
+				<input type="email" name="mail" value="Email@address.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email@address.com';}">
 				
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 				
 				<p class="header">确认密码</p>
-				<input type="password" name="password" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
-				
+				<input type="password" name="rePassword" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
+				<input type="text" name="identity" hidden="true" value="enterprise">
 				<input type="submit" class="register" value="Register">
 			</form>
 		</div> 
