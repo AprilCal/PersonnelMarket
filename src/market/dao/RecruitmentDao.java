@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import market.busi.BusiException;
+import market.vo.Enterprise;
 import market.vo.Recruitment;
 
 public class RecruitmentDao {
@@ -87,8 +89,174 @@ public class RecruitmentDao {
 		}
 		return null;
 	}
+	/*根据城市city查询*/
+	public static List<Recruitment> selectByCity(String city){
+		Connection conn = null;
+		List<Recruitment> ret = new ArrayList<Recruitment>();
+		try {
+			conn = DBHelper.getConnection();
 	
-	public List<Recruitment> selectByPosition(String position){
+			String sql = "select * from recruitment where city=? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, city);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Recruitment recruitment = new Recruitment();
+				recruitment.setRecruitmentId(rs.getInt("recruitmentId"));
+				recruitment.setTitle(rs.getString("title"));
+				recruitment.setTime(rs.getString("time"));
+				recruitment.setDepartment(rs.getString("department"));
+				recruitment.setPosition(rs.getString("position"));
+				recruitment.setEnterpriseId(rs.getInt("enterpriseId"));
+				recruitment.setSalary_low(rs.getInt("salary_low"));
+				recruitment.setSalary_high(rs.getInt("salary_high"));
+				recruitment.setExperiment(rs.getString("experiment"));
+				recruitment.setPositionDescription(rs.getString("positionDescription"));
+				recruitment.setProvince(rs.getString("province"));
+				recruitment.setCity(rs.getString("city"));
+				recruitment.setTechStack(rs.getString("techStack"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
+				recruitment.setDeleted(rs.getBoolean("deleted"));
+				ret.add(recruitment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	/*根据标题中的信息进行模糊查询*/
+	public static List<Recruitment> selectByVagueTitle(String vaguetitle){
+		Connection conn = null;
+		List<Recruitment> ret = new ArrayList<Recruitment>();
+		try {
+			conn = DBHelper.getConnection();
+	
+			String sql = "select * from recruitment where title like ? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1,"%"+vaguetitle+"%");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Recruitment recruitment = new Recruitment();
+				recruitment.setRecruitmentId(rs.getInt("recruitmentId"));
+				recruitment.setTitle(rs.getString("title"));
+				recruitment.setTime(rs.getString("time"));
+				recruitment.setDepartment(rs.getString("department"));
+				recruitment.setPosition(rs.getString("position"));
+				recruitment.setEnterpriseId(rs.getInt("enterpriseId"));
+				recruitment.setSalary_low(rs.getInt("salary_low"));
+				recruitment.setSalary_high(rs.getInt("salary_high"));
+				recruitment.setExperiment(rs.getString("experiment"));
+				recruitment.setPositionDescription(rs.getString("positionDescription"));
+				recruitment.setProvince(rs.getString("province"));
+				recruitment.setCity(rs.getString("city"));
+				recruitment.setTechStack(rs.getString("techStack"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
+				recruitment.setDeleted(rs.getBoolean("deleted"));
+				ret.add(recruitment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	/*根据省份查询*/
+	public static List<Recruitment> selectByProvince(String province){
+		Connection conn = null;
+		List<Recruitment> ret = new ArrayList<Recruitment>();
+		try {
+			conn = DBHelper.getConnection();
+	
+			String sql = "select * from recruitment where province=? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, province);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Recruitment recruitment = new Recruitment();
+				recruitment.setRecruitmentId(rs.getInt("recruitmentId"));
+				recruitment.setTitle(rs.getString("title"));
+				recruitment.setTime(rs.getString("time"));
+				recruitment.setDepartment(rs.getString("department"));
+				recruitment.setPosition(rs.getString("position"));
+				recruitment.setEnterpriseId(rs.getInt("enterpriseId"));
+				recruitment.setSalary_low(rs.getInt("salary_low"));
+				recruitment.setSalary_high(rs.getInt("salary_high"));
+				recruitment.setExperiment(rs.getString("experiment"));
+				recruitment.setPositionDescription(rs.getString("positionDescription"));
+				recruitment.setProvince(rs.getString("province"));
+				recruitment.setCity(rs.getString("city"));
+				recruitment.setTechStack(rs.getString("techStack"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
+				recruitment.setDeleted(rs.getBoolean("deleted"));
+				ret.add(recruitment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	/*实现职位模糊查询*/
+	public static List<Recruitment> selectByvaguePosition(String vagueposition){
+		Connection conn = null;
+		List<Recruitment> ret = new ArrayList<Recruitment>();
+		try {
+			conn = DBHelper.getConnection();
+	
+			String sql = "select * from recruitment where position like ? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "%"+vagueposition+"%");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Recruitment recruitment = new Recruitment();
+				recruitment.setRecruitmentId(rs.getInt("recruitmentId"));
+				recruitment.setTitle(rs.getString("title"));
+				recruitment.setTime(rs.getString("time"));
+				recruitment.setDepartment(rs.getString("department"));
+				recruitment.setPosition(rs.getString("position"));
+				recruitment.setEnterpriseId(rs.getInt("enterpriseId"));
+				recruitment.setSalary_low(rs.getInt("salary_low"));
+				recruitment.setSalary_high(rs.getInt("salary_high"));
+				recruitment.setExperiment(rs.getString("experiment"));
+				recruitment.setPositionDescription(rs.getString("positionDescription"));
+				recruitment.setProvince(rs.getString("province"));
+				recruitment.setCity(rs.getString("city"));
+				recruitment.setTechStack(rs.getString("techStack"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
+				recruitment.setDeleted(rs.getBoolean("deleted"));
+				ret.add(recruitment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	/*实现职位查询*/
+	public static List<Recruitment> selectByPosition(String position){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -129,7 +297,7 @@ public class RecruitmentDao {
 		return ret;
 	}
 	
-	public List<Recruitment> selectAll(){
+	public static List<Recruitment> selectAll(){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -185,10 +353,37 @@ public class RecruitmentDao {
 				e.printStackTrace();
 			}
 		}
+		
+	}
+	public static void main(String[] args) throws BusiException {
+//		Recruitment rs=new Recruitment();
+//		rs.setTitle("南华国际招收有志于软件开发的专业非专业毕业生!");
+//		rs.setExperiment("较为丰富simple");
+//		rs.setPositionRequirment("掌握Ajax高并发处理.....");
+//		rs.setEnterpriseId(2);
+//		rs.setSalary_high(10000);
+//		rs.setSalary_low(7000);
+//		rs.setDeleted(false);
+//		rs.setPositionDescription("日常开发及维护");
+//		rs.setTime("2018-1-11");
+//		rs.setTechStack("全栈");
+//		rs.setDepartment("运营");
+//		rs.setCity("南昌");
+//		rs.setProvince("江西");
+//		RecruitmentDao rdao=new RecruitmentDao();
+//		rdao.insert(rs);
+		
+	
+		List<Recruitment> ret=selectByvaguePosition("p");
+		//List<Recruitment> ret=selectByPosition("c++");
+		 for (int i = 0; i < ret.size(); i++) {
+			 Recruitment re=ret.get(i);
+	         System.out.println(re.toString());
+	        }
+		
 	}
 	
-/*
-	
+	/*
 	public List<User> selectByCondition(
 			String name, Integer ageBegin, Integer ageEnd, Integer sex) {
 		Connection conn = null;

@@ -117,7 +117,8 @@ public class Recruitment {
 	
 	@Override
 	public String toString() {
-		return "id:"+recruitmentId+"\n"+
+		return "id:"+recruitmentId+"\n"+"position:"+position+"\n"+"province:"+province+"\n"+
+	          "city:"+city+"\n"+
 				"title:"+title+"\n";
 	}
 }

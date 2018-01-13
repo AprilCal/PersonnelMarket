@@ -79,6 +79,7 @@ public class Test {
 		System.out.println(cDao.selectByName("yxw").toString());
 	}
 	
+	
 
 	public static void RecruitmentInsertTest() {
 		
@@ -170,8 +171,9 @@ public class Test {
 		//RecruitmentDeleteTest();
 		//EnterpriseInsert();
 		//ResumeInsertTest();
+		//ResumeDeleteTest();
 		//SubmitInsert();
-		SubmitDelete();
+		//SubmitDelete();
 	}
 
 }
