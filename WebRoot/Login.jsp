@@ -19,30 +19,32 @@
     </ul>
     <div class="tab-content">
         <div id="signin-agile">
-			<form action="#" method="post">
+			<form action="Login" method="post">
 				<p class="header">用户名</p>
-				<input type="text" name="user" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
+				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
-				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">			
-				<input type="button" class="sign-in" value="个人登录" onclick="location.href='CustomerMainPage.html'">
-				<a href="Register.html"><span></span> 注册?</a>
-				<a href="underconstraction"><span></span> 忘记密码?</a>
+				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<%if(request.getAttribute("msg")!=null){ %>
+					<font color="red"><%=request.getAttribute("msg") %></font>
+				<%} %>
+				<input type="submit" class="sign-in" value="个人登录">
+				<a href="Register.html"> 注册?</a>
+				<a href="underconstraction">忘记密码?</a>
 			</form>
 		</div>
 		<div id="signup-agile">   
 			<form action="#" method="post">
 				
 				<p class="header">用户名</p>
-				<input type="text" name="user" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
-			
+				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-				
-				
-				<input type="button" class="register" value="企业登录" onclick="location.href='EnterpriseMainPage.html'">
-				
-				<a href="Register.html"><span></span> 注册?</a>
-				<a href="#"><span></span> 忘记密码?</a>
+				<%//if(request.getAttribute("msg")!=null){ %>
+					<font color="red"><%=request.getAttribute("msg") %></font>
+				<%//} %>
+				<input type="submit" class="register" value="企业登录">
+				<a href="Register.html">注册?</a>
+				<a href="#">忘记密码?</a>
 			</form>
 		</div> 
     </div><!-- tab-content -->
