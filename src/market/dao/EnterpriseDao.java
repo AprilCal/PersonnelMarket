@@ -15,8 +15,8 @@ public class EnterpriseDao {
 			conn = DBHelper.getConnection();
 	
 			String sql = "insert into enterprise "
-					+ "(enterpriseName,tel,mail,messageNum,resumeRecv,password,deleted)"
-					+ " values (?,?,?,?,?,?,?)";
+					+ "(enterpriseName,tel,mail,messageNum,resumeRecv,password,deleted,userName)"
+					+ " values (?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, enterprise.getEnterpriseName());
 			ps.setString(2, enterprise.getTel());
@@ -25,7 +25,8 @@ public class EnterpriseDao {
 			ps.setInt(5, enterprise.getResumeRecv());
 			ps.setString(6, enterprise.getPassword());
 			ps.setBoolean(7, enterprise.isDeleted());
-
+			ps.setString(8, enterprise.getUserName());
+			
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,7 +43,7 @@ public class EnterpriseDao {
 		try {
 			conn = DBHelper.getConnection();
 			String sql = "UPDATE `personnel_market`.`enterprise` "+
-					"SET `enterpriseName`=?, `tel`=?, `messageNum`=?, `resumeRecv`=?, `mail`=?, `password`=?,`deleted`=? WHERE `enterpriseId`=?;";
+					"SET `enterpriseName`=?, `tel`=?, `messageNum`=?, `resumeRecv`=?, `mail`=?, `password`=?,`deleted`=?, `userName`=? WHERE `enterpriseId`=?;";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, enterprise.getEnterpriseName());
@@ -52,7 +53,8 @@ public class EnterpriseDao {
 			ps.setString(5, enterprise.getMail());
 			ps.setString(6, enterprise.getPassword());
 			ps.setBoolean(7, enterprise.isDeleted());
-			ps.setInt(8, id);
+			ps.setString(8, enterprise.getUserName());
+			ps.setInt(9, id);
 			//update tabe1 set cnt=cnt+1;
 			
 			ps.executeUpdate();
@@ -85,12 +87,12 @@ public class EnterpriseDao {
 		}
 	}
 	
-	public Enterprise selectByName(String name) {
+	public Enterprise selectByUserName(String name) {
 		Connection conn = null;
 		try {
 			conn = DBHelper.getConnection();
 	
-			String sql = "select * from enterprise where enterpriseName= ? and deleted=0";
+			String sql = "select * from enterprise where userName = ? and deleted=0";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,name);
 			ResultSet rs = ps.executeQuery();
@@ -100,10 +102,11 @@ public class EnterpriseDao {
 				enterprise.setEnterpriseName(rs.getString("enterpriseName"));
 				enterprise.setTel(rs.getString("tel"));
 				enterprise.setMessageNum(rs.getInt("messageNum"));
-				enterprise.setResumeRecv(rs.getInt("resumeRev"));
+				enterprise.setResumeRecv(rs.getInt("resumeRecv"));
 				enterprise.setMail(rs.getString("mail"));
 				enterprise.setPassword(rs.getString("password"));
 				enterprise.setDeleted(rs.getBoolean("deleted"));
+				enterprise.setUserName(rs.getString("userName"));
 				
 				return enterprise;
 			}
@@ -134,10 +137,11 @@ public class EnterpriseDao {
 				enterprise.setEnterpriseName(rs.getString("enterpriseName"));
 				enterprise.setTel(rs.getString("tel"));
 				enterprise.setMessageNum(rs.getInt("messageNum"));
-				enterprise.setResumeRecv(rs.getInt("resumeRev"));
+				enterprise.setResumeRecv(rs.getInt("resumeRecv"));
 				enterprise.setMail(rs.getString("mail"));
 				enterprise.setPassword(rs.getString("password"));
 				enterprise.setDeleted(rs.getBoolean("deleted"));
+				enterprise.setUserName(rs.getString("userName"));
 				
 				return enterprise;
 			}

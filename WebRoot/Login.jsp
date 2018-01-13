@@ -24,6 +24,7 @@
 				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="text" name="identity" hidden="true" value="customer">
 				<%if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
 				<%} %>
@@ -32,13 +33,13 @@
 				<a href="underconstraction">忘记密码?</a>
 			</form>
 		</div>
-		<div id="signup-agile">   
-			<form action="#" method="post">
-				
+		<div id="signup-agile">
+			<form action="Login" method="post">
 				<p class="header">用户名</p>
 				<input type="text" name="name" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}">
 				<p class="header">密码</p>
 				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				<input type="text" name="identity" hidden="true" value="enterprise">
 				<%//if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
 				<%//} %>

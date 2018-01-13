@@ -15,7 +15,7 @@ public class EnterpriseBusi {
 	
 	public Enterprise login(String username,String password) throws BusiException{
 		Enterprise enterprise=null;
-		enterprise=eDao.selectByName(username.trim());
+		enterprise=eDao.selectByUserName(username.trim());
 		if(enterprise==null||!enterprise.getPassword().equals(password))
 		{
 			throw new BusiException("用户名或者密码错误！");

@@ -3,12 +3,22 @@ package market.vo;
 public class Enterprise {
 	private int enterpriseId;
 	private String enterpriseName;
+	private String userName;
+
 	private String tel;
 	private String mail;
 	private int messageNum;
 	private int resumeRecv;
 	private String password;
 	private boolean deleted;
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	
 	public int getEnterpriseId() {
 		return enterpriseId;
