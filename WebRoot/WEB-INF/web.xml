@@ -32,13 +32,21 @@
     <servlet-name>RecruitmentDetailServlet</servlet-name>
     <url-pattern>/RecruitmentDetailServlet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>ReleaseServlet</servlet-name>
     <servlet-class>market.servlet.ReleaseServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReleaseServlet</servlet-name>
     <url-pattern>/Release</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>DeliverServlet</servlet-name>
+    <servlet-class>market.servlet.DeliverServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeliverServlet</servlet-name>
+    <url-pattern>/Deliver</url-pattern>
   </servlet-mapping>
 </web-app>

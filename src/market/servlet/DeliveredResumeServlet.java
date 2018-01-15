@@ -24,7 +24,7 @@ public class DeliveredResumeServlet extends HttpServlet {
 		
 		List<DeliveredBoxItem> list = null;
 		try {
-			list = dBusi.getDeliveredResumeList(customerId);
+			list = (List<DeliveredBoxItem>)dBusi.getDeliveredResumeList(customerId);
 			request.getSession().setAttribute("list", list);
 			for(DeliveredBoxItem d:list) {
 				System.out.println("item:"+d.getResumeId());

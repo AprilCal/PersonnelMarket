@@ -34,9 +34,7 @@ public class DeliveredBoxItemBusi {
 				System.out.println(item.getResumeId()+":"+item.getState()+":"+item.getRecruitmentTitle());
 			}
 		}
-		
-		
-		return null;
+		return list;
 	}
 
 	public static void main(String[] args) {
