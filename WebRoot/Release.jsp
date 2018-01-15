@@ -144,7 +144,7 @@
 				<label for="message">岗位要求</label>
 			</div>
 			<div class="ctrl">
-				<textarea id="message" name="positionRecruitment" rows="5" cols="10"></textarea>
+				<textarea id="message" name="positionRequirement" rows="5" cols="10"></textarea>
 			</div>
 		</div>
 		<div class="row  clearfix">

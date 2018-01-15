@@ -31,7 +31,6 @@ public class DeliveredBoxItemBusi {
 				item.setRecruitmentTitle(rment.getTitle());
 				item.setState(s.getState());
 				list.add(item);
-				
 			}
 		}
 		

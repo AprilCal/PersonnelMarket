@@ -1,10 +1,13 @@
-<%@page import="market.vo.Customer"%>
+<%@page import="market.vo.*" import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<% Customer customer = (Customer)session.getAttribute("customer"); %>
+<% 	Customer customer = (Customer)session.getAttribute("customer"); 
+	List<DeliveredBoxItem> list = (List<DeliveredBoxItem>)session.getAttribute("list");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,61 +71,19 @@
 		<h3>目前投递的简历</h3>
 	</header>
 	<div id="postcomments">
-	<ol id="comment_list" class="commentlist">        
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历<a href="Resume.html">点此查看简历</a>
-				<a href="CustomerMainPage.html">已被拒绝,再去看看其他相似岗位</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
-			</p>
-		</div>
-	</li>
-		<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>投递了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">已被接受,等待面试安排</a>
-			</p>
-		</div>
-	</li>
+	<ol id="comment_list" class="commentlist">
+	
+	<%
+		for(DeliveredBoxItem item:list){
+			out.print("<li class=\"comment-content\">"+
+						"<div class=\"comment-main\">"+
+						"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+item.getRecruitmentTitle()+"</a>"+
+						"<span class=\"time\">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+						"<a href=\"#\">已被接受,等待面试安排</a></p></div></li>"
+					);
+		}
+	%>     
+	
 	</ol>
   </div>
 </div>
