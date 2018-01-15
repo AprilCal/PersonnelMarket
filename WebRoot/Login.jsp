@@ -15,7 +15,7 @@
 <div class="form-w3ls">
     <ul class="tab-group cl-effect-4">
         <li class="tab active"><a href="#signin-agile">个人用户登录</a></li>
-		<li class="tab"><a href="#signup-agile">企业用户登录</a></li>        
+		<li class="tab"><a href="#signup-agile">企业用户登录</a></li>
     </ul>
     <div class="tab-content">
         <div id="signin-agile">
