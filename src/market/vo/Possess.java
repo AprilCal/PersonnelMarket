@@ -1,10 +1,22 @@
 package market.vo;
 
+/**
+ * @author asus-
+ *
+ */
 public class Possess {
 	private int customerId;
 	private int resumeId;
-	private int resumeName;
-	
+	private String resumeName;
+	private boolean deleted;
+	public void setDeleted(boolean deleted)
+	{
+		this.deleted=deleted;
+	}
+	public boolean isDeleted()
+	{
+		return deleted;
+	}
 	
 	public int getCustomerId() {
 		return customerId;
@@ -18,10 +30,10 @@ public class Possess {
 	public void setResumeId(int resumeId) {
 		this.resumeId = resumeId;
 	}
-	public int getResumeName() {
+	public String getResumeName() {
 		return resumeName;
 	}
-	public void setResumeName(int resumeName) {
+	public void setResumeName(String resumeName) {
 		this.resumeName = resumeName;
 	}
 
