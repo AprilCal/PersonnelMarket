@@ -84,7 +84,7 @@
 	<ul class="nav navbar-nav navbar-right">
 	  <li><a data-cont="木庄网络博客" title="消息" href="underconstructing.html">消息(11)</a></li>
 	  <li><a data-cont="列表页" title="我的简历" href="Resume.html">我的简历</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="DeliveredResumeServlet?customerId=<%= customer.getCustomerID() %>">投递箱</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="DeliveredResumeServlet?customerId=1">投递箱</a></li>
 	  <li><a data-cont="404" title="404" href="Favorite.html">收藏夹</a></li>
 	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" ><%= customer.getCustomerName() %></a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯分享</a></li>

@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet{
 				Customer customer = cBusi.login(username, password);
 				if(customer!=null) {
 					request.getSession().setAttribute("customer", customer);
-					request.getRequestDispatcher("CustomerMainPage.jsp").forward(request, response);
+					response.sendRedirect("CustomerMainPage.jsp");
 				}
 				else {
 					request.setAttribute("msg", "用户名或密码错误");
@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet{
 				Enterprise enterprise = eBusi.login(username, password);
 				if(enterprise!=null) {
 					request.getSession().setAttribute("enterprise", enterprise);
-					request.getRequestDispatcher("EnterpriseMainPage.jsp").forward(request, response);
+					response.sendRedirect("EnterpriseMainPage.jsp");
 				}
 				else {
 					request.setAttribute("msg", "用户名或密码错误");
@@ -77,38 +77,4 @@ public class LoginServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
-	
-	/*protected void doGet(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String pwd = request.getParameter("password");
-		User user = busi.login(name, pwd);
-		if(user != null) {
-			Cookie cookie = new Cookie("loginedUser", name);
-			switch(request.getParameter("saveNameFlag")){
-			case "month":
-				cookie.setMaxAge(60*60*24*30);
-				break;
-			case "week":
-				cookie.setMaxAge(60*60*24*7);
-				break;
-			case "day":
-				cookie.setMaxAge(60*60*24);
-				break;
-			case "none":
-				cookie.setMaxAge(0);
-			}
-			response.addCookie(cookie);
-			request.getSession().setAttribute("user", user);
-			request.getRequestDispatcher("lyQuery.servlet").forward(request, response);
-		} else {
-			//request.setAttribute("msg", "�û������������");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}*/
 }
