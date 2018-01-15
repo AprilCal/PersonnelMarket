@@ -1,8 +1,13 @@
+<%@page import="market.vo.Customer" import="market.vo.*"
+	import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<% Customer customer = (Customer)session.getAttribute("customer"); 
+   Recruitment recruitment = (Recruitment)session.getAttribute("recruitment");
+   %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,11 +54,11 @@
 	  </div>
 	</form>
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(11)</a></li>
+	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(<%= customer.getMessageNum() %>)</a></li>
 	  <li><a data-cont="列表页" title="列表页" href="Resume.html">我的简历</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="DeliveredResume.html">投递箱</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="DeliveredResumeServlet?customerId=<%= customer.getCustomerID() %>">投递箱</a></li>
 	  <li><a data-cont="404" title="404" href="underconstructing.html">收藏夹</a></li>
-	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >AprilCal</a></li>
+	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" ><%= customer.getCustomerName() %></a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯分享</a></li>
 	</ul>
   </div>
@@ -64,34 +69,24 @@
 <div class="content-wrap">
 <div class="content">
   <header class="article-header">
-	<h1 class="article-title"><a href="#" title="用DTcms做一个独立博客网站（响应式模板）" >毒狼网吧诚招网管一名</a></h1>
+	<h1 class="article-title"><a href="#" title="招聘标题" ><%= recruitment.getTitle() %></a></h1>
 	<div class="article-meta"> 
 	  <span class="item article-meta-time">
 	  <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="发表时间：2016-10-14">
-	  <i class="glyphicon glyphicon-time"></i> 2016-10-14</time></span> 
+	  <i class="glyphicon glyphicon-time"></i><%= recruitment.getTime() %></time></span> 
 	  <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="浏览量：219">
-	  <i class="glyphicon glyphicon-eye-open"></i> 219</span> 
+	  <i class="glyphicon glyphicon-eye-open"></i> 219</span>
 	  <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论量">
 	  <i class="glyphicon glyphicon-comment"></i> 4</span>
 	</div>
   </header>
   <article class="article-content">
 	<h3>职位描述</h3>
-		负责产品线的后端、服务端开发，保证产品的快速迭代<br>
-		通过优化代码、优化架构等，保证代码的可维护性，提升服务的性能和稳定性<br>
-		参与技术平台和效率工具的开发，提升平台运营效率<br> 
+		<%= recruitment.getPositionDescription() %>
 	<h3>岗位要求</h3>
-		0、有1年以上开发经验，有扎实的技术基础，有较强的动手能力，有浓厚的技术热情<br>
-		1、熟悉Java、Linux、常见的MVC框架和数据库<br>
-		2、在业务高速增长的环境下，完成产品快速迭代开发需求<br>
-		3、主动通过代码重构、代码优化、架构升级等方式提升产品质量和研发效率<br>
-		4、自我驱动，快速学习能力，能快速掌握业务知识和行业相关技术<br>    
+		<%= recruitment.getPositionRequirment() %>
 	<h3>技术栈</h3>
-	1）开发和运行环境：开发环境：MacOS运行环境：Redhat/CentOS 编程语言：Java/Python/Node.js 工具：标配15寸Mac/Git/IDEA<br>
-	2）主要中间件和组件：Web服务：Tengine&Tomcat 缓存：Redis/Memcache 队列：RocketMQ 数据存储：Mysql/MongoDB/Hadoop/Cassandra/ElasticSearch<br>
-	大数据计算：JStorm/Hive/MapReduce/MaxCompute<br>
-	分布式锁：Zookeeper<br>
-	框架：Spring/Struts/Ibatis<br>
+		<%= recruitment.getTechStack() %>
   </article>
 
         	<center><button class="btn btn-default btn-search" name="deliver" type="submit">投份简历</button></center>

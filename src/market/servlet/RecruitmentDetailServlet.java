@@ -1,34 +1,35 @@
 package market.servlet;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import market.busi.ResumeBoxItemBusi;
-import market.vo.ResumeBoxItem;
+import market.busi.RecruitmentBusi;
+import market.vo.Recruitment;
 
-public class ResumeBoxServlet extends HttpServlet {
+/**
+ * create by AprilCal on 2018.1.15
+ */
+public class RecruitmentDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	ResumeBoxItemBusi rBusi = new ResumeBoxItemBusi();
-    public ResumeBoxServlet() {
+       
+	RecruitmentBusi rBusi = new RecruitmentBusi();
+    public RecruitmentDetailServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		System.out.println("this is resumebox");
+		System.out.println("this is recuritment detail.");
+		int recruitmentId = Integer.parseInt(request.getParameter("recruitmentId"));
 		
-		//int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
-		//List<ResumeBoxItem> list = rBusi.getList(enterpriseId);
-		//request.getSession().setAttribute("list", list);
+		Recruitment recruitment = rBusi.getRecruitmentById(recruitmentId);
+		request.getSession().setAttribute("recruitment", recruitment);
 		
-		
+		response.sendRedirect("RecruitmentDetailPage.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

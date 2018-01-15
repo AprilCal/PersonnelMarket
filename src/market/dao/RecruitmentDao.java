@@ -72,7 +72,7 @@ public class RecruitmentDao {
 				recruitment.setProvince(rs.getString("province"));
 				recruitment.setCity(rs.getString("city"));
 				recruitment.setTechStack(rs.getString("techStack"));
-				recruitment.setPositionRequirment(rs.getString("positionRecruitment"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
 				recruitment.setDeleted(rs.getBoolean("deleted"));
 				return recruitment;
 			}
@@ -88,7 +88,7 @@ public class RecruitmentDao {
 		return null;
 	}
 	/*根据城市city查询*/
-	public static List<Recruitment> selectByCity(String city){
+	public List<Recruitment> selectByCity(String city){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -129,7 +129,7 @@ public class RecruitmentDao {
 		return ret;
 	}
 	/*根据标题中的信息进行模糊查询*/
-	public static List<Recruitment> selectByVagueTitle(String vaguetitle){
+	public List<Recruitment> selectByVagueTitle(String vaguetitle){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -171,7 +171,7 @@ public class RecruitmentDao {
 	}
 	
 	/*根据省份查询*/
-	public static List<Recruitment> selectByProvince(String province){
+	public List<Recruitment> selectByProvince(String province){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -212,7 +212,7 @@ public class RecruitmentDao {
 		return ret;
 	}
 	/*实现职位模糊查询*/
-	public static List<Recruitment> selectByvaguePosition(String vagueposition){
+	public List<Recruitment> selectByvaguePosition(String vagueposition){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -254,7 +254,7 @@ public class RecruitmentDao {
 	}
 	
 	/*实现职位查询*/
-	public static List<Recruitment> selectByPosition(String position){
+	public List<Recruitment> selectByPosition(String position){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -295,7 +295,7 @@ public class RecruitmentDao {
 		return ret;
 	}
 	
-	public static List<Recruitment> selectAll(){
+	public List<Recruitment> selectAll(){
 		Connection conn = null;
 		List<Recruitment> ret = new ArrayList<Recruitment>();
 		try {
@@ -372,12 +372,12 @@ public class RecruitmentDao {
 //		rdao.insert(rs);
 		
 	
-		List<Recruitment> ret=selectByvaguePosition("p");
+		//List<Recruitment> ret=selectByvaguePosition("p");
 		//List<Recruitment> ret=selectByPosition("c++");
-		 for (int i = 0; i < ret.size(); i++) {
-			 Recruitment re=ret.get(i);
-	         System.out.println(re.toString());
-	        }
+		 //for (int i = 0; i < ret.size(); i++) {
+			// Recruitment re=ret.get(i);
+	        // System.out.println(re.toString());
+	       // }
 		
 	}
 	

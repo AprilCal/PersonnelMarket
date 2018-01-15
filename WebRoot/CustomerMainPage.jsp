@@ -149,7 +149,7 @@
 				"<a class=\"focus\" href=\"underconstructing.html\" title=\"enterprise title\" target=\"_blank\" >"+
 				"<img class=\"thumb\" data-original=\"images/dulang.jpg\" src=\"images/dulang.jpg\" alt=\"用DTcms做一个独立博客网站\"  style=\"display: inline;\">"+
 				"</a><header><a class=\"cat\" href=\"#\" title=\"企业名\" >武汉市毒狼网吧</a>"+
-				"<h2><a href=\"RecruitmentDetailPage.html\" title=\"招聘标题\" target=\"_blank\" >"+r.getTitle()+"</a></h2></header>"+
+				"<h2><a href=\"RecruitmentDetailServlet?recruitmentId="+r.getRecruitmentId()+"\" title=\"招聘标题\" target=\"_blank\" >"+r.getTitle()+"</a></h2></header>"+
 				"<p class=\"meta\">"+
 				"<time class=\"time\"><i class=\"glyphicon glyphicon-time\"></i> 2016-10-14</time>"+
 				"<span class=\"views\"><i class=\"glyphicon glyphicon-eye-open\"></i> 216</span> <a class=\"comment\" href=\"##comment\" title=\"评论\" target=\"_blank\" ><i class=\"glyphicon glyphicon-comment\"></i> 4</a>"+
