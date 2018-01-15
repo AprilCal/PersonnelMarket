@@ -13,6 +13,14 @@ public class EnterpriseBusi {
 	
 	private EnterpriseDao eDao = new EnterpriseDao();
 	
+	public void incResuemRecv(int id) {
+		eDao.incResumeRecv(id);
+	}
+	
+	public void decResumeRecv(int id) {
+		eDao.decResumeRecv(id);
+	}
+	
 	public Enterprise login(String username,String password) throws BusiException{
 		Enterprise enterprise=null;
 		enterprise=eDao.selectByUserName(username.trim());

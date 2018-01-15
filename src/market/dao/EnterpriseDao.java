@@ -9,6 +9,14 @@ import market.vo.Enterprise;
 
 public class EnterpriseDao {
 	
+	public void incResumeRecv(int id) {
+		//
+	}
+	
+	public void decResumeRecv(int id) {
+		//
+	}
+	
 	public void insert(Enterprise enterprise) {
 		Connection conn = null;
 		try {

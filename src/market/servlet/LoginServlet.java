@@ -20,6 +20,7 @@ import market.vo.Recruitment;
  * completed by AprilCal on 2018.1.13
  *
  */
+
 public class LoginServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
