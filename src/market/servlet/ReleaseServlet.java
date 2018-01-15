@@ -29,11 +29,15 @@ public class ReleaseServlet extends HttpServlet {
 		
 		Recruitment recruitment = null;
 		
+		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String department = request.getParameter("department");
 		String positon = request.getParameter("position");
+		String newStr = new String(department.getBytes(), "UTF-8");
+		String newStr2 = new String(positon.getBytes(), "UTF-8");
+		String newStr3 = new String(title.getBytes(), "UTF-8");
 		
-		System.out.print("title:"+title+"department:"+department);
+		System.out.print("department:"+newStr+"department:"+newStr2+"title:"+newStr3);
 		//recruitment.setTitle(" ");
 		
 		/*try {

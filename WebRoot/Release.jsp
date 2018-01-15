@@ -11,7 +11,7 @@
     <script src="js/jquery-ui.js" type="text/javascript"></script>
     <!--End Framework-->
     <script src="js/jquery.ffform.js" type="text/javascript"></script>
-<script language="JavaScript" type="text/javascript" charset="utf-8">  
+<script language="JavaScript" type="text/javascript">  
    //定义了城市的二维数组，里面的顺序跟省份的顺序是相同的。通过selectedIndex获得省份的下标值来得到相应的城市数组  
               var city=[  
            ["北京","天津","上海","重庆"],  
