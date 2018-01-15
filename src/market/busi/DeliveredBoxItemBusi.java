@@ -15,7 +15,6 @@ public class DeliveredBoxItemBusi {
 	SubmitDao sDao = new SubmitDao();
 	RecruitmentDao rDao=new RecruitmentDao();
 	
-	
 	public List<DeliveredBoxItem> getDeliveredResumeList(int customerId) throws SQLException{
 		
 		List<DeliveredBoxItem> list = new ArrayList<DeliveredBoxItem>();

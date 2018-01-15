@@ -25,6 +25,10 @@ public class SubmitBusi {
 		sDao.update(submit);
 	}
 	
+	public void delete(int resumeId,int enterpriseId,int recruitmentId) {
+		sDao.delete(resumeId, enterpriseId, recruitmentId);
+	}
+	
 	public static void main(String[] args) {
 		Submit submit = new Submit();
 		submit.setResumeId(1);
