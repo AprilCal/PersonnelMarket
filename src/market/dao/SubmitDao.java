@@ -24,10 +24,10 @@ public class SubmitDao {
 				Submit submit=new Submit();
 				submit.setResumeId(rs.getInt("resumeId"));
 				submit.setEnterpriseId(rs.getInt("enterpriseId"));
-				submit.setRecruitmentId(rs.getInt("recruitId"));
-				submit.setReadOrNot(false);
-				submit.setDeleted(false);
-				submit.setState("Accepted");
+				submit.setRecruitmentId(rs.getInt("recruitmentId"));
+				submit.setReadOrNot(rs.getBoolean("readornot"));
+				submit.setDeleted(rs.getBoolean("deleted"));
+				submit.setState(rs.getString("state"));
 				submit.setCustomerId(rs.getInt("customerId"));
 				ret.add(submit);
 			}
@@ -41,7 +41,6 @@ public class SubmitDao {
 			}
 		}
 		return ret;
-		
 	}
 	public List<Submit> getAllSubmitBycustomerId(int id) throws SQLException
 	{
