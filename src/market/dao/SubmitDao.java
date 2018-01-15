@@ -58,9 +58,9 @@ public class SubmitDao {
 				submit.setResumeId(rs.getInt("resumeId"));
 				submit.setEnterpriseId(rs.getInt("enterpriseId"));
 				submit.setRecruitmentId(rs.getInt("recruitmentId"));
-				submit.setReadOrNot(false);
+				submit.setReadOrNot(rs.getBoolean("ReadOrNot"));
 				submit.setDeleted(false);
-				submit.setState("Accepted");
+				submit.setState(rs.getString("state"));
 				submit.setCustomerId(rs.getInt("customerId"));
 				ret.add(submit);
 			}
@@ -170,7 +170,7 @@ public class SubmitDao {
 			submit.setRecruitmentId(2);
 			submit.setReadOrNot(true);
 			submit.setDeleted(false);
-			submit.setState("Accepted");
+			submit.setState("refused");
 			submit.setCustomerId(2);
 			SubmitDao sdao=new SubmitDao();
 			sdao.insert(submit);
