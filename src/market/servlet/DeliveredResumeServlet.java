@@ -26,14 +26,13 @@ public class DeliveredResumeServlet extends HttpServlet {
 		try {
 			list = dBusi.getDeliveredResumeList(customerId);
 			request.getSession().setAttribute("list", list);
-			
 			for(DeliveredBoxItem d:list) {
 				System.out.println("item:"+d.getResumeId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		response.sendRedirect("DeliveredResume.jsp");
 	}
 

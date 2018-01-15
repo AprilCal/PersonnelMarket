@@ -31,6 +31,7 @@ public class DeliveredBoxItemBusi {
 				item.setRecruitmentTitle(rment.getTitle());
 				item.setState(s.getState());
 				list.add(item);
+				System.out.println(item.getResumeId()+":"+item.getState()+":"+item.getRecruitmentTitle());
 			}
 		}
 		
@@ -40,6 +41,13 @@ public class DeliveredBoxItemBusi {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		DeliveredBoxItemBusi dBusi=new DeliveredBoxItemBusi();
+		try {
+			dBusi.getDeliveredResumeList(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
