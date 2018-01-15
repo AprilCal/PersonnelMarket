@@ -8,7 +8,7 @@ public class Submit {
 	private boolean readOrNot;
 	private boolean deleted;
 	private String state;
-	
+	private int customerId;
 	public int getResumeId() {
 		return resumeId;
 	}
@@ -44,5 +44,11 @@ public class Submit {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public int getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 }
