@@ -1,6 +1,7 @@
 package market.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,9 +25,19 @@ public class ResumeBoxServlet extends HttpServlet {
 		
 		System.out.println("this is resumebox");
 		
-		//int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
-		//List<ResumeBoxItem> list = rBusi.getList(enterpriseId);
-		//request.getSession().setAttribute("list", list);
+		int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
+		System.out.println("enterpriseId:"+enterpriseId);
+		try {
+			List<ResumeBoxItem> list = rBusi.getList(enterpriseId);
+			request.getSession().setAttribute("list", list);
+			
+			for(ResumeBoxItem r:list) {
+				System.out.println(r.getRecruitmentTitle());
+			}
+			response.sendRedirect("ResumeBox.jsp");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		
 	}

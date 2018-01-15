@@ -30,7 +30,8 @@ public class ResumeBoxItemBusi {
 		return list;
 	}
 	public static void main(String[] args) {
-
+		ResumeBoxItemBusi rBusi = new ResumeBoxItemBusi();
+		List<Submit> list = rBusi.getList("1")
 	}
 
 }
