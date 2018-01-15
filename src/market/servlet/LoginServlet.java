@@ -70,6 +70,7 @@ public class LoginServlet extends HttpServlet{
 				Enterprise enterprise = eBusi.login(username, password);
 				if(enterprise!=null) {
 					request.getSession().setAttribute("enterprise", enterprise);
+					request.getSession().setAttribute("recruitmentList", rBusi.getAllRecruitment());
 					response.sendRedirect("EnterpriseMainPage.jsp");
 				}
 				else {
