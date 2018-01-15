@@ -1,6 +1,7 @@
 package market.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,13 +22,17 @@ public class DeliveredResumeServlet extends HttpServlet {
 		int customerId = Integer.parseInt(request.getParameter("customerId"));
 		System.out.println("customerId:"+customerId);
 		
-		List<DeliveredBoxItem> list = dBusi.getDeliveredResumeList(customerId);
-		request.getSession().setAttribute("list", list);
-		
-		for(DeliveredBoxItem d:list) {
-			System.out.println("item:"+d.getResumeId());
+		List<DeliveredBoxItem> list = null;
+		try {
+			list = dBusi.getDeliveredResumeList(customerId);
+			request.getSession().setAttribute("list", list);
+			for(DeliveredBoxItem d:list) {
+				System.out.println("item:"+d.getResumeId());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		
+
 		response.sendRedirect("DeliveredResume.jsp");
 	}
 
