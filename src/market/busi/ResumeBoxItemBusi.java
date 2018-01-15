@@ -1,5 +1,6 @@
 package market.busi;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class ResumeBoxItemBusi {
 	SubmitDao sDao = new SubmitDao();
 	RecruitmentDao rDao = new RecruitmentDao();
 
-	public List<ResumeBoxItem> getList(int enterpriseId){
+	public List<ResumeBoxItem> getList(int enterpriseId) throws SQLException{
 		List<ResumeBoxItem> list = new ArrayList<ResumeBoxItem>();
 		
 		List<Submit> submitList = sDao.getAllSubmitByEnterpriseId(enterpriseId);

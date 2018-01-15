@@ -2,16 +2,45 @@ package market.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
 import market.vo.Submit;
 
 public class SubmitDao {
 	
-	public List<Submit> getAllSubmitByEnterpriseId(int id){
+	public List<Submit> getAllSubmitByEnterpriseId(int id) throws SQLException
+	{
+		Connection conn = null;
+		List<Submit> ret = new ArrayList<Submit>();
+		try {
+			conn = (Connection) DBHelper.getConnection();
+			String sql = "select * from submit  where enterpriseId=?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Submit submit=new Submit();
+				submit.setResumeId(rs.getInt("resumeId"));
+				submit.setEnterpriseId(rs.getInt("resumeId"));
+				submit.setRecruitmentId(rs.getInt("recruitId"));
+				submit.setReadOrNot(false);
+				submit.setDeleted(false);
+				submit.setState("Accepted");
+				ret.add(submit);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
 		
-		return null;
 	}
 	public void insert(Submit submit) {
 		Connection connection = null;

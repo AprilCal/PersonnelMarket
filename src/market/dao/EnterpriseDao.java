@@ -10,11 +10,49 @@ import market.vo.Enterprise;
 public class EnterpriseDao {
 	
 	public void incResumeRecv(int id) {
-		//
+		//update enterprise set cnt=cnt+1;
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql="update enterprise set resumeRecv=resumeRecv+1 where enterpriseId=?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			//update tabe1 set cnt=cnt+1;
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	public void decResumeRecv(int id) {
-		//
+		//update enterprise set cnt=cnt+1 where.....;
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+			String sql="update enterprise set resumeRecv=resumeRecv-1 where enterpriseId=?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			//update tabe1 set cnt=cnt-1;
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	public void insert(Enterprise enterprise) {

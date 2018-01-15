@@ -11,7 +11,7 @@ import market.vo.Enterprise;
 
 public class EnterpriseBusi {
 	
-	private EnterpriseDao eDao = new EnterpriseDao();
+	private  EnterpriseDao eDao = new EnterpriseDao();
 	
 	public void incResuemRecv(int id) {
 		eDao.incResumeRecv(id);
@@ -83,18 +83,21 @@ public class EnterpriseBusi {
 	
 	//test
 	public static void main(String[] args) throws BusiException {
-		Enterprise enterprise=new Enterprise();
-		enterprise.setEnterpriseId(1);
-		enterprise.setEnterpriseName("武汉独狼网吧");
-		enterprise.setTel("18721594283");
-		enterprise.setMessageNum(6);
-		enterprise.setResumeRecv(4);
-		enterprise.setMail("753662@163.com");
-		enterprise.setPassword("123");
-		enterprise.setDeleted(false);
-		
-		EnterpriseDao eDao = new EnterpriseDao();
-		eDao.updateById(enterprise,1);
+		EnterpriseBusi eBusi=new EnterpriseBusi();
+//		Enterprise enterprise=new Enterprise();
+//		enterprise.setEnterpriseId(1);
+//		enterprise.setEnterpriseName("武汉独狼网吧");
+//		enterprise.setTel("18721594283");
+//		enterprise.setMessageNum(6);
+//		enterprise.setResumeRecv(4);
+//		enterprise.setMail("753662@163.com");
+//		enterprise.setPassword("123");
+//		enterprise.setDeleted(false);
+//		
+//		EnterpriseDao eDao = new EnterpriseDao();
+//		eDao.updateById(enterprise,1);
+		//incResuemRecv(1);
+		eBusi.decResumeRecv(1);
 		
 		
 	}
