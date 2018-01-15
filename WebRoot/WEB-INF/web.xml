@@ -24,14 +24,21 @@
     <servlet-name>ResumeBox</servlet-name>
     <url-pattern>/ResumeBoxServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>RecruitmentDetailServlet</servlet-name>
     <servlet-class>market.servlet.RecruitmentDetailServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>RecruitmentDetailServlet</servlet-name>
     <url-pattern>/RecruitmentDetailServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ReleaseServlet</servlet-name>
+    <servlet-class>market.servlet.ReleaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReleaseServlet</servlet-name>
+    <url-pattern>/Release</url-pattern>
   </servlet-mapping>
 </web-app>

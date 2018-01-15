@@ -11,7 +11,7 @@ public class DBHelper {
 	static String driver = "com.mysql.jdbc.Driver";
 	static String url = "jdbc:mysql://127.0.0.1:3306/personnel_market?useSSL=false";
 	static String dbUsername = "root";
-	static String dbPassword = "123456";
+	static String dbPassword = "510676";
 	
 	static {
 		//get db connector class

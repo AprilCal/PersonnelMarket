@@ -86,7 +86,7 @@
 	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息<%= enterprise.getMessageNum() %></a></li>
 	  <li><a data-cont="列表页" title="简历箱" href="ResumeBoxServlet?enterpriseId=<%= enterprise.getEnterpriseId() %>">简历箱(<%= enterprise.getResumeRecv() %>)</a></li>
 	  <li><a data-cont="详细页" title="详细页" href="MyRecruitment.html">我的招聘</a></li>
-	  <li><a data-cont="详细页" title="详细页" href="Release.html">发布招聘</a></li>
+	  <li><a data-cont="详细页" title="详细页" href="Release.jsp">发布招聘</a></li>
 	  <li><a data-cont="MZ-NetBolg主题" title="企业名" href="underconstructing.html" ><%= enterprise.getEnterpriseName() %></a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯中心</a></li>
 	</ul>
