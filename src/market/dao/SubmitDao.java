@@ -3,9 +3,16 @@ package market.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
+
 import market.vo.Submit;
 
 public class SubmitDao {
+	
+	public List<Submit> getAllSubmitByEnterpriseId(int id){
+		
+		return null;
+	}
 	public void insert(Submit submit) {
 		Connection connection = null;
 		try {

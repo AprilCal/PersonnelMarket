@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import market.busi.BusiException;
-import market.vo.Enterprise;
 import market.vo.Recruitment;
 
 public class RecruitmentDao {

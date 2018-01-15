@@ -24,6 +24,13 @@
     <url-pattern>/DeliveredResumeServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ResumeBox</servlet-name>
+    <servlet-class>market.servlet.ResumeBoxServlet</servlet-class>
+  </servlet>
   
-  
+  <servlet-mapping>
+    <servlet-name>ResumeBox</servlet-name>
+    <url-pattern>/ResumeBoxServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

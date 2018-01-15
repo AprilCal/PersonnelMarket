@@ -6,12 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import market.busi.BusiException;
 import market.busi.CustomerBusi;
 import market.busi.EnterpriseBusi;
+import market.busi.RecruitmentBusi;
 import market.vo.Customer;
 import market.vo.Enterprise;
+import market.vo.Recruitment;
 
 
 /**
@@ -25,6 +26,8 @@ public class LoginServlet extends HttpServlet{
 	
 	private CustomerBusi cBusi = new CustomerBusi();
 	private EnterpriseBusi eBusi = new EnterpriseBusi();
+	
+	private RecruitmentBusi rBusi = new RecruitmentBusi();
 	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException{
@@ -41,6 +44,12 @@ public class LoginServlet extends HttpServlet{
 				Customer customer = cBusi.login(username, password);
 				if(customer!=null) {
 					request.getSession().setAttribute("customer", customer);
+					request.getSession().setAttribute("recruitmentList", rBusi.getAllRecruitment());
+					
+					for(Recruitment r:rBusi.getAllRecruitment()) {
+						System.out.println(r);
+					}
+					
 					response.sendRedirect("CustomerMainPage.jsp");
 				}
 				else {

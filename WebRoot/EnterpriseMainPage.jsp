@@ -1,8 +1,10 @@
+<%@page import="market.vo.Enterprise"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<% Enterprise enterprise = (Enterprise)session.getAttribute("enterprise"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -85,7 +87,7 @@
 	  <li><a data-cont="列表页" title="列表页" href="ResumeBox.html">简历箱(15)</a></li>
 	  <li><a data-cont="详细页" title="详细页" href="MyRecruitment.html">我的招聘</a></li>
 	  <li><a data-cont="详细页" title="详细页" href="Release.html">发布招聘</a></li>
-	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >武汉毒狼网吧</a></li>
+	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" ><%= enterprise.getEnterpriseName() %></a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯中心</a></li>
 	</ul>
   </div>
