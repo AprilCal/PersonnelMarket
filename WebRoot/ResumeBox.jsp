@@ -69,72 +69,19 @@
 	</header>
 	<div id="postcomments">
 	<ol id="comment_list" class="commentlist">  
-	
 	<%
 		List<ResumeBoxItem> list = (List<ResumeBoxItem>)session.getAttribute("list");
 		for(ResumeBoxItem r:list){
 			out.print(
-					r.getRecruitmentTitle()
-					//"<li class=\"comment-content\">"+
-					//"<div class=\"comment-main\">"+
-					//"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">武汉毒狼网吧诚招网管一名</a>"+
-					//"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
-					//"<a href=\"#\">接受</a>"+
-					//"<a href=\"#\">拒绝</a></p></div></li>"
+					"<li class=\"comment-content\">"+
+					"<div class=\"comment-main\">"+
+					"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
+					"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+					"<a href=\"#\">接受</a>"+
+					"<a href=\"#\">拒绝</a></p></div></li>"
 					);	
 		}
 	%>      
-	
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">接受</a>
-				<a href="#">拒绝</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">接受</a>
-				<a href="#">拒绝</a>
-			</p>
-		</div>
-	</li>
-		<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">接受</a>
-				<a href="#">拒绝</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">接受</a>
-				<a href="#">拒绝</a>
-			</p>
-		</div>
-	</li>
-	<li class="comment-content">
-		<div class="comment-main">
-			<p>
-				<a class="address" href="RecruitmentDetailPage.html" rel="nofollow" target="_blank">武汉毒狼网吧诚招网管一名</a>
-				<span class="time">(2016/10/14 21:02:39)</span><br>收到了一份简历 <a href="Resume.html">点此查看简历</a>
-				<a href="#">接受</a>
-				<a href="#">拒绝</a>
-			</p>
-		</div>
-	</li>
 	</ol>
   </div>
 </div>

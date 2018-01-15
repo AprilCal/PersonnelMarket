@@ -52,7 +52,7 @@ public class RecruitmentDao {
 		try {
 			conn = DBHelper.getConnection();
 	
-			String sql = "select * from recruitment where RecruitmentId = ? and deleted=0";
+			String sql = "select * from recruitment where recruitmentId = ? and deleted=0";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
