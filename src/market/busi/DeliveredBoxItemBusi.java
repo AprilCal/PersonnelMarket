@@ -12,7 +12,7 @@ public class DeliveredBoxItemBusi {
 	
 	public List<DeliveredBoxItem> getDeliveredResumeList(int customerId){
 		
-		List<DeliveredBoxItem> list= new ArrayList<DeliveredBoxItem>();
+		List<DeliveredBoxItem> list = new ArrayList<DeliveredBoxItem>();
 		
 		return null;
 	}
