@@ -49,7 +49,7 @@ public class SubmitDao {
 		List<Submit> ret = new ArrayList<Submit>();
 		try {
 			conn = (Connection) DBHelper.getConnection();
-			String sql = "select * from submit  where customerid=?;";
+			String sql = "select * from submit  where customerId=?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -57,7 +57,7 @@ public class SubmitDao {
 				Submit submit=new Submit();
 				submit.setResumeId(rs.getInt("resumeId"));
 				submit.setEnterpriseId(rs.getInt("enterpriseId"));
-				submit.setRecruitmentId(rs.getInt("recruitId"));
+				submit.setRecruitmentId(rs.getInt("recruitmentId"));
 				submit.setReadOrNot(false);
 				submit.setDeleted(false);
 				submit.setState("Accepted");
