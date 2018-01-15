@@ -1,8 +1,10 @@
+<%@page import="market.vo.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<% Customer customer = (Customer)session.getAttribute("customer"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,11 +50,11 @@
 		</span> </div>
 	</form>
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(11)</a></li>
+	  <li><a data-cont="木庄网络博客" title="木庄网络博客" href="underconstructing.html">消息(<%= customer.getMessageNum() %>)</a></li>
 	  <li><a data-cont="列表页" title="列表页" href="Resume.html">我的简历</a></li>
 	  <li><a data-cont="详细页" title="详细页" href="DeliveredResume.html">投递箱</a></li>
 	  <li><a data-cont="详细页" title="详细页" href="Favorite.html">收藏夹</a></li>
-	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" >AprilCal</a></li>
+	  <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="underconstructing.html" ><%= customer.getCustomerName() %></a></li>
 	  <li><a data-cont="资讯分享" title="资讯分享" href="underconstructing.html" >资讯中心</a></li>
 	</ul>
   </div>

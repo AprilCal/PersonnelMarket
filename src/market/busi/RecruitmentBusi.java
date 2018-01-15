@@ -33,6 +33,11 @@ public class RecruitmentBusi {
 		return null;
 		//return rDao.selectByProvince();
 	}
+	
+	public Recruitment getRecruitmentById(int id){
+		Recruitment recruitment = rDao.selectById(id);
+		return recruitment;
+	}
 	//public List<Recruitment> getRecruitmentByLocation
 	public static void main(String[] args) {
 		RecruitmentBusi rBusi = new RecruitmentBusi();
