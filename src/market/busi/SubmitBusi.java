@@ -33,7 +33,7 @@ public class SubmitBusi {
 		submit.setReadOrNot(true);
 		submit.setDeleted(false);
 		submit.setState("unknown");
-		
+		submit.setCustomerId(2);
 		//SubmitBusi sBusi = new SubmitBusi();
 		//sBusi.admitResume(submit);
 		//sBusi.refuseResume(submit);

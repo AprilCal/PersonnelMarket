@@ -23,11 +23,45 @@ public class SubmitDao {
 			while(rs.next()) {
 				Submit submit=new Submit();
 				submit.setResumeId(rs.getInt("resumeId"));
-				submit.setEnterpriseId(rs.getInt("resumeId"));
+				submit.setEnterpriseId(rs.getInt("enterpriseId"));
 				submit.setRecruitmentId(rs.getInt("recruitId"));
 				submit.setReadOrNot(false);
 				submit.setDeleted(false);
 				submit.setState("Accepted");
+				submit.setCustomerId(rs.getInt("customerId"));
+				ret.add(submit);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+		
+	}
+	public List<Submit> getAllSubmitBycustomerId(int id) throws SQLException
+	{
+		Connection conn = null;
+		List<Submit> ret = new ArrayList<Submit>();
+		try {
+			conn = (Connection) DBHelper.getConnection();
+			String sql = "select * from submit  where customerid=?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Submit submit=new Submit();
+				submit.setResumeId(rs.getInt("resumeId"));
+				submit.setEnterpriseId(rs.getInt("enterpriseId"));
+				submit.setRecruitmentId(rs.getInt("recruitId"));
+				submit.setReadOrNot(false);
+				submit.setDeleted(false);
+				submit.setState("Accepted");
+				submit.setCustomerId(rs.getInt("customerId"));
 				ret.add(submit);
 			}
 		} catch (SQLException e) {
@@ -47,8 +81,8 @@ public class SubmitDao {
 		try {
 			connection = DBHelper.getConnection();
 			String sql = "INSERT INTO `personnel_market`.`submit` "+
-					"(`resumeId`, `enterpriseId`, `recruitmentId`, `readornot`, `deleted`, `state`) "+
-					"VALUES (?,?,?,?,?,?);";
+					"(`resumeId`, `enterpriseId`, `recruitmentId`, `readornot`, `deleted`, `state`,`customerId`) "+
+					"VALUES (?,?,?,?,?,?,?);";
 			
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, submit.getResumeId());
@@ -57,6 +91,7 @@ public class SubmitDao {
 			ps.setBoolean(4, submit.isReadOrNot());
 			ps.setBoolean(5, submit.isDeleted());
 			ps.setString(6, submit.getState());
+			ps.setInt(7, submit.getCustomerId());
 			
 			ps.executeUpdate();
 		}catch (SQLException e) {
@@ -101,7 +136,7 @@ public class SubmitDao {
 		try {
 			conn = DBHelper.getConnection();
 			String sql = "UPDATE `personnel_market`.`submit` "+
-					"SET `readornot`=?, `deleted`=?, `state`=? WHERE `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
+					"SET `readornot`=?, `deleted`=?, `state`=? WHERE `resumeId`=? and `enterpriseId`=? and `recruitmentId`=? and `customerId`=?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setBoolean(1, submit.isReadOrNot());
@@ -110,6 +145,7 @@ public class SubmitDao {
 			ps.setInt(4, submit.getResumeId());
 			ps.setInt(5, submit.getEnterpriseId());
 			ps.setInt(6, submit.getRecruitmentId());
+			ps.setInt(7, submit.getCustomerId());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -129,12 +165,13 @@ public class SubmitDao {
 				System.out.print("connect success");
 			}
 			Submit submit=new Submit();
-			submit.setResumeId(1);
+			//submit.setResumeId(1);
 			submit.setEnterpriseId(2);
 			submit.setRecruitmentId(2);
 			submit.setReadOrNot(true);
 			submit.setDeleted(false);
 			submit.setState("Accepted");
+			submit.setCustomerId(2);
 			SubmitDao sdao=new SubmitDao();
 			sdao.insert(submit);
 		}catch(SQLException e){
@@ -151,7 +188,7 @@ public class SubmitDao {
 //		submit.setReadOrNot(true);
 //		submit.setDeleted(false);
 //		submit.setState("refused");
-//		SubmitInsertTest();
+		//SubmitInsertTest();
 		//sDao.update(submit);
 	}
 }
