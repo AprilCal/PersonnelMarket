@@ -8,6 +8,16 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SignUpServlet</servlet-name>
+    <servlet-class>market.servlet.SignUpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUpServlet</servlet-name>
+    <url-pattern>/SignUp</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>DeliveredResume</servlet-name>
     <servlet-class>market.servlet.DeliveredResumeServlet</servlet-class>

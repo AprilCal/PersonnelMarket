@@ -24,6 +24,11 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/nprogress.js"></script>
 <script src="js/jquery.lazyload.min.js"></script>
+<%	request.setCharacterEncoding("UTF-8");
+	if(request.getAttribute("msg")!=null){
+		out.print("<script >alert(\""+request.getAttribute("msg")+"\");</script>");
+	}
+%>
 </head>
 <body class="user-select single">
 <header class="header">
@@ -84,8 +89,8 @@
 						"<div class=\"comment-main\">"+
 						"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
 						"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
-						"<a href=\"Admit?primaryKey="+r.getResumeId()+","+enterprise.getEnterpriseId()+","+r.getRecruitmentTitle()+"\">接受</a>"+
-						"<a href=\"Refuse?primaryKey="+r.getResumeId()+","+enterprise.getEnterpriseId()+","+r.getRecruitmentTitle()+"\">拒绝</a></p></div></li>"
+						"<a href=\"Admit?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+2+"\">接受</a>"+
+						"<a href=\"Refuse?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+2+"\">拒绝</a></p></div></li>"
 						);	
 			}
 		}

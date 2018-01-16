@@ -18,7 +18,6 @@ import market.vo.Enterprise;
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet("/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private CustomerBusi cBusi = new CustomerBusi();

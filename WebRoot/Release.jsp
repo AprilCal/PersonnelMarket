@@ -119,7 +119,7 @@
 				<label for="email">职位描述</label>
 			</div>
 			<div class="ctrl">
-				<input type="text" id="phone" name="positionDescription" data-required="true" data-validation="custom" data-msg="Invalid Phone #" placeholder="Ex: 具备...知识，完成什么功能">
+				<textarea id="message" name="positionDescription" rows="5" cols="82"></textarea>
 			</div>
 		</div>
 		<div class="row clearfix">
@@ -136,7 +136,7 @@
 				<label for="message">技术栈</label>
 			</div>
 			<div class="ctrl">
-				<textarea id="message" name="techStack" rows="5" cols="10"></textarea>
+				<textarea id="message" name="techStack" rows="5" cols="82"></textarea>
 			</div>
 		</div>
 		<div class="row clearfix">
@@ -144,7 +144,7 @@
 				<label for="message">岗位要求</label>
 			</div>
 			<div class="ctrl">
-				<textarea id="message" name="positionRequirement" rows="5" cols="10"></textarea>
+				<textarea id="message" name="positionRequirement" rows="5" cols="82"></textarea>
 			</div>
 		</div>
 		<div class="row  clearfix">
