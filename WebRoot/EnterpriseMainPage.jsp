@@ -95,38 +95,25 @@
 </nav>
 </header>
 <section class="container">
-  
-  <div class="fixed">
-  <div class="widget widget-hot">
-  <div class="tab-content">
-  	<h2>技术:</h2>Java Android C++/C  C#
-  	<h2>产品:</h2>
-  	<h2>设计:</h2>
-  	<h2>运营:</h2>
-  	<h2>职能:</h2>
-  	<h2>职位:</h2>
-  	<h2>职位:</h2>
-  	<h2>职位:</h2>
-  </div>
-  </div>
-  </div>
-<div class="fixed">
-  <div class="widget widget-tabs">
-	<div class="tab-content">
-        <div>
-            <h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-  			<h2>职位:</h2>
-        </div>
-	</div>
-  </div>
-</div> 
 
+<div class="widget widget_search" >
+	<form class="navbar-form" action="/Search" method="post" align="center">
+	<select name="scope" >
+					<option value="0">搜索范围</option>
+					<option value="department">部门</option>
+					<option value="position">岗位</option>
+					<option value="location">地区</option>
+					<option value="title">标题</option>
+	</select>
+	<div class="input-group">
+		<input type="text" name="keyword" class="form-control" size="140" placeholder="请输入关键字" maxlength="24" autocomplete="off">
+		<span class="input-group-btn">
+		<button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
+		</span> 
+	</div>
+	</form>
+</div>
+  
 <% 
 	List<Recruitment> recruitmentList = (List<Recruitment>)session.getAttribute("recruitmentList");
 	for(Recruitment r : recruitmentList){

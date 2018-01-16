@@ -40,13 +40,20 @@
     <servlet-name>ReleaseServlet</servlet-name>
     <url-pattern>/Release</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>DeliverServlet</servlet-name>
     <servlet-class>market.servlet.DeliverServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeliverServlet</servlet-name>
     <url-pattern>/Deliver</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>market.servlet.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/Search</url-pattern>
   </servlet-mapping>
 </web-app>

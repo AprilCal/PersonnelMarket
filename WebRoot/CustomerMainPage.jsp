@@ -96,16 +96,17 @@
 </header>
 <section class="container">
     <div class="widget widget_search" >
-	<form class="navbar-form" action="/Search" method="post" align="center">
+	<form class="navbar-form" action="Search" method="post" align="center">
 	<select name="scope" >
-					<option value="0">搜索范围</option>
+					<option value="all">搜索范围</option>
 					<option value="department">部门</option>
-					<option value="position">岗位</option>
+					<option value="position">职位</option>
 					<option value="location">地区</option>
 					<option value="title">标题</option>
 	</select>
 	<div class="input-group">
 		<input type="text" name="keyword" class="form-control" size="140" placeholder="请输入关键字" maxlength="24" autocomplete="off">
+		<input type="text" name="identity" hidden="true" value="customer">
 		<span class="input-group-btn">
 		<button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
 		</span> 
@@ -115,17 +116,22 @@
 
 <% 
 	List<Recruitment> recruitmentList = (List<Recruitment>)session.getAttribute("recruitmentList");
-	for(Recruitment r : recruitmentList){
-		out.print("<article class=\"excerpt excerpt-1\" style=\"\">"+
-				"<a class=\"focus\" href=\"underconstructing.html\" title=\"enterprise title\" target=\"_blank\" >"+
-				"<img class=\"thumb\" data-original=\"images/dulang.jpg\" src=\"images/dulang.jpg\" alt=\"用DTcms做一个独立博客网站\"  style=\"display: inline;\">"+
-				"</a><header><a class=\"cat\" href=\"#\" title=\"企业名\" >武汉市毒狼网吧</a>"+
-				"<h2><a href=\"RecruitmentDetailServlet?recruitmentId="+r.getRecruitmentId()+"\" title=\"招聘标题\" target=\"_blank\" >"+r.getTitle()+"</a></h2></header>"+
-				"<p class=\"meta\">"+
-				"<time class=\"time\"><i class=\"glyphicon glyphicon-time\"></i> 2016-10-14</time>"+
-				"<span class=\"views\"><i class=\"glyphicon glyphicon-eye-open\"></i> 216</span> <a class=\"comment\" href=\"##comment\" title=\"评论\" target=\"_blank\" ><i class=\"glyphicon glyphicon-comment\"></i> 4</a>"+
-				"</p><p class=\"note\">职位描述:"+r.getPositionDescription()+"</p></article>"
-				);
+	if(recruitmentList.isEmpty()){
+		out.print("暂无职位");
+	}
+	else{
+		for(Recruitment r : recruitmentList){
+			out.print("<article class=\"excerpt excerpt-1\" style=\"\">"+
+					"<a class=\"focus\" href=\"underconstructing.html\" title=\"enterprise title\" target=\"_blank\" >"+
+					"<img class=\"thumb\" data-original=\"images/dulang.jpg\" src=\"images/dulang.jpg\" alt=\"用DTcms做一个独立博客网站\"  style=\"display: inline;\">"+
+					"</a><header><a class=\"cat\" href=\"#\" title=\"企业名\" >武汉市毒狼网吧</a>"+
+					"<h2><a href=\"RecruitmentDetailServlet?recruitmentId="+r.getRecruitmentId()+"\" title=\"招聘标题\" target=\"_blank\" >"+r.getTitle()+"</a></h2></header>"+
+					"<p class=\"meta\">"+
+					"<time class=\"time\"><i class=\"glyphicon glyphicon-time\"></i> 2016-10-14</time>"+
+					"<span class=\"views\"><i class=\"glyphicon glyphicon-eye-open\"></i> 216</span> <a class=\"comment\" href=\"##comment\" title=\"评论\" target=\"_blank\" ><i class=\"glyphicon glyphicon-comment\"></i> 4</a>"+
+					"</p><p class=\"note\">职位描述:"+r.getPositionDescription()+"</p></article>"
+					);
+		}
 	}
 %>
 <article class="excerpt excerpt-1" style="">

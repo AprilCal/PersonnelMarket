@@ -41,18 +41,16 @@ public class DeliverServlet extends HttpServlet {
 		
 		Recruitment recruitment = (Recruitment)request.getSession().getAttribute("recruitment");
 		//Recruitment recruitment = (Recruitment)rBusi.getRecruitmentById(recruitmentId);
-		
+		Customer customer = (Customer)request.getSession().getAttribute("customer");
 		Submit submit = new Submit();
 		
-		int resumeId;
-		int enterpriseId;
-		enterpriseId = recruitment.getEnterpriseId();
+		int resumeId = resumeBusi.getFirstResumeByCustomerId(customer.getCustomerID()).getResumeId();
+		int enterpriseId = recruitment.getEnterpriseId();
 		boolean readornot=false;
 		boolean deleted=false;
-		Customer customer = (Customer)request.getSession().getAttribute("customer");
 		int customerId = customer.getCustomerID();
 		
-		submit.setResumeId(recruitmentId);
+		submit.setResumeId(resumeId);
 		submit.setEnterpriseId(enterpriseId);
 		submit.setCustomerId(customerId);
 		submit.setRecruitmentId(recruitmentId);
@@ -60,17 +58,16 @@ public class DeliverServlet extends HttpServlet {
 		submit.setReadOrNot(readornot);
 		submit.setState("unviewed");
 		
-		//try {
-			//sBusi.deliver(submit);
-			//eBusi.incResuemRecv(enterpriseId);
-		//}catch (SQLException e) {
-			//request.setAttribute("msg", "不可重复投递简历!");
-		//}
-		//finally {
-			request.setCharacterEncoding("UTF-8");
-			request.setAttribute("msg", "简历投递成功!");
+		try {
+			sBusi.deliver(submit);
+			eBusi.incResuemRecv(enterpriseId);
+		}catch (SQLException e) {
+			request.setAttribute("msg", "不可重复投递简历!");
 			request.getRequestDispatcher("RecruitmentDetailPage.jsp").forward(request, response);
-		//}
+		}
+		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("msg", "简历投递成功!");
+		request.getRequestDispatcher("RecruitmentDetailPage.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
