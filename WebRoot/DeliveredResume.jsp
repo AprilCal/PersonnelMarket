@@ -75,12 +75,21 @@
 	
 	<%
 		for(DeliveredBoxItem item:list){
-			out.print("<li class=\"comment-content\">"+
+			if(item.getState().equals("admitted")){
+				out.print("<li class=\"comment-content\">"+
+							"<div class=\"comment-main\">"+
+							"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+item.getRecruitmentTitle()+"</a>"+
+							"<span class=\"time\">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+							"<a href=\"#\">已被接受,等待面试安排</a></p></div></li>"
+						);
+			}else{
+				out.print("<li class=\"comment-content\">"+
 						"<div class=\"comment-main\">"+
 						"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+item.getRecruitmentTitle()+"</a>"+
 						"<span class=\"time\">(2016/10/28 11:41:03)</span><br>投递了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
-						"<a href=\"#\">已被接受,等待面试安排</a></p></div></li>"
-					);
+						"<a href=\"#\">已被拒绝</a></p></div></li>"
+						);
+			}
 		}
 	%>     
 	

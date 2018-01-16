@@ -88,8 +88,7 @@
 	<h3>技术栈</h3>
 		<%= recruitment.getTechStack() %>
   </article>
-      <center><button onclick="location.href='Deliver?customerId=<%= customer.getCustomerID() %>'"class="btn btn-default btn-search" name="deliver" type="submit">投份简历</button></center>
-
+      <center><button onclick="location.href='Deliver?recruitmentId=<%= recruitment.getRecruitmentId() %>'"class="btn btn-default btn-search" name="deliver" type="submit">投份简历</button></center>
   <div class="relates">
 	<div class="title">
 	  <h3>看了此职位的人还会看</h3>

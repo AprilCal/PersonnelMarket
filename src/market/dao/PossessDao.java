@@ -62,7 +62,7 @@ public class PossessDao {
 		possess.setResumeId(3);
 		possess.setDeleted(false);
 		possess.setResumeName("招聘");
-		PossessDao pDao=new PossessDao();
+		//PossessDao pDao=new PossessDao();
 		//pDao.insert(possess);
 		//pDao.delete(1);
 
