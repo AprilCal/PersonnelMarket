@@ -29,7 +29,7 @@
 					<font color="red"><%=request.getAttribute("msg") %></font>
 				<%} %>
 				<input type="submit" class="sign-in" value="个人登录">
-				<a href="Register.html"> 注册?</a>
+				<a href="Register.jsp"> 注册?</a>
 				<a href="underconstraction">忘记密码?</a>
 			</form>
 		</div>
@@ -44,7 +44,7 @@
 					<font color="red"><%=request.getAttribute("msg") %></font>
 				<%} %>
 				<input type="submit" class="register" value="企业登录">
-				<a href="Register.html">注册?</a>
+				<a href="Register.jsp">注册?</a>
 				<a href="#">忘记密码?</a>
 			</form>
 		</div> 
