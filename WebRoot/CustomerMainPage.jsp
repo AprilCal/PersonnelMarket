@@ -133,7 +133,7 @@
 		}
 	}
 %>
-<article class="excerpt excerpt-1" style="">
+<!-- <article class="excerpt excerpt-1" style="">
 	<a class="focus" href="underconstructing.html" title="enterprise title" target="_blank" >
 		<img class="thumb" data-original="images/dulang.jpg" src="images/dulang.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;">
 	</a>
@@ -216,7 +216,7 @@
 			<span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span> <a class="comment" href="##comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a>
 		</p>
 		<p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-</article>
+</article> -->
 </section>
 <footer class="footer">
 <div class="container">

@@ -33,6 +33,7 @@ public class SubmitBusi {
 	
 	//接受简历
 	public void admitResume(Submit submit) {
+		//TODO:
 		submit.setState("admitted");
 		sDao.update(submit);
 	}
