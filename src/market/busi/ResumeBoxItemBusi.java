@@ -27,6 +27,7 @@ public class ResumeBoxItemBusi {
 				item.setRecruitmentTitle(rDao.selectById(s.getRecruitmentId()).getTitle());
 				item.setResumeId(s.getResumeId());
 				item.setState(s.getState());
+				item.setRecruitmentId(s.getRecruitmentId());
 				list.add(item);
 			}
 		}

@@ -2,6 +2,7 @@ package market.vo;
 
 public class ResumeBoxItem {
 	private String RecruitmentTitle;
+	private int RecruitmentId;
 	private int ResumeId;
 	private String state;
 	
@@ -22,6 +23,12 @@ public class ResumeBoxItem {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public int getRecruitmentId() {
+		return RecruitmentId;
+	}
+	public void setRecruitmentId(int recruitmentId) {
+		RecruitmentId = recruitmentId;
 	}
 	
 }
