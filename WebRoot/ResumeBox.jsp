@@ -5,6 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%
+	Enterprise enterprise = (Enterprise)session.getAttribute("enterprise");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,15 +74,20 @@
 	<ol id="comment_list" class="commentlist">  
 	<%
 		List<ResumeBoxItem> list = (List<ResumeBoxItem>)session.getAttribute("list");
-		for(ResumeBoxItem r:list){
-			out.print(
-					"<li class=\"comment-content\">"+
-					"<div class=\"comment-main\">"+
-					"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
-					"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
-					"<a href=\"#\">接受</a>"+
-					"<a href=\"#\">拒绝</a></p></div></li>"
-					);	
+		if(list.isEmpty()){
+			out.print("<center>暂时没有收到简历<center>");
+		}
+		else{
+			for(ResumeBoxItem r:list){
+				out.print(
+						"<li class=\"comment-content\">"+
+						"<div class=\"comment-main\">"+
+						"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
+						"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+						"<a href=\"Admit?primaryKey="+r.getResumeId()+","+enterprise.getEnterpriseId()+","+r.getRecruitmentTitle()+"\">接受</a>"+
+						"<a href=\"Refuse?primaryKey="+r.getResumeId()+","+enterprise.getEnterpriseId()+","+r.getRecruitmentTitle()+"\">拒绝</a></p></div></li>"
+						);	
+			}
 		}
 	%>      
 	</ol>
