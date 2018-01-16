@@ -24,10 +24,9 @@ public class ResumeBoxItemBusi {
 		for(Submit s : submitList) {
 			if(!s.getState().equals("refused")){
 				ResumeBoxItem item = new ResumeBoxItem();
-				
-				System.out.println(s.getCustomerId());
 				item.setRecruitmentTitle(rDao.selectById(s.getRecruitmentId()).getTitle());
 				item.setResumeId(s.getResumeId());
+				item.setState(s.getState());
 				list.add(item);
 			}
 		}
@@ -36,9 +35,9 @@ public class ResumeBoxItemBusi {
 	public static void main(String[] args) {
 		ResumeBoxItemBusi rBusi = new ResumeBoxItemBusi();
 		try {
-			List<ResumeBoxItem> list = rBusi.getList(1);
+			List<ResumeBoxItem> list = rBusi.getList(2);
 			for(ResumeBoxItem r:list) {
-				System.out.println(r.getRecruitmentTitle());
+				System.out.println(r.getRecruitmentTitle()+":"+r.getState());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

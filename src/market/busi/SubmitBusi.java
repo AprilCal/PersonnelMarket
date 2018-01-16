@@ -32,14 +32,16 @@ public class SubmitBusi {
 	}
 	
 	//接受简历
-	public void admitResume(Submit submit) {
+	public void admitResume(int resumeId,int enterpriseId,int recruitmentId) {
 		//TODO:
+		Submit submit=sDao.selectSubmitByPrimaryKey(resumeId, enterpriseId, recruitmentId);
 		submit.setState("admitted");
 		sDao.update(submit);
 	}
 	
 	//拒绝简历
-	public void refuseResume(Submit submit) {
+	public void refuseResume(int resumeId,int enterpriseId,int recruitmentId) {
+		Submit submit=sDao.selectSubmitByPrimaryKey(resumeId, enterpriseId, recruitmentId);
 		submit.setState("refused");
 		sDao.update(submit);
 	}
@@ -57,7 +59,7 @@ public class SubmitBusi {
 //		submit.setDeleted(false);
 //		submit.setState("unknown");
 //		submit.setCustomerId(2);
-//		SubmitBusi sBusi = new SubmitBusi();
+		SubmitBusi sBusi = new SubmitBusi();
 //		try {
 //			boolean flag=sBusi.deliver(submit);
 //			System.out.println(flag);
@@ -65,7 +67,8 @@ public class SubmitBusi {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		//sBusi.admitResume(submit);
+		//sBusi.admitResume(2,2,2);
+		sBusi.refuseResume(2, 2, 2);
 		//sBusi.refuseResume(submit);
 		//sDao.update(submit);
 
