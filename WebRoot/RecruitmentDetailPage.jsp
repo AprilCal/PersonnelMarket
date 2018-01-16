@@ -24,6 +24,11 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/nprogress.js"></script>
 <script src="js/jquery.lazyload.min.js"></script>
+<%	request.setCharacterEncoding("UTF-8");
+	if(request.getAttribute("msg")!=null){
+		out.print("<script >alert(\""+request.getAttribute("msg")+"\");</script>");
+	}
+%>
 </head>
 <body class="user-select single">
 <header class="header">
@@ -88,8 +93,7 @@
 	<h3>技术栈</h3>
 		<%= recruitment.getTechStack() %>
   </article>
-      <center><button onclick="location.href='Deliver?customerId=<%= customer.getCustomerID() %>'"class="btn btn-default btn-search" name="deliver" type="submit">投份简历</button></center>
-
+      <center><button onclick="location.href='Deliver?recruitmentId=<%= recruitment.getRecruitmentId() %>'"class="btn btn-default btn-search" name="deliver" type="submit">投份简历</button></center>
   <div class="relates">
 	<div class="title">
 	  <h3>看了此职位的人还会看</h3>

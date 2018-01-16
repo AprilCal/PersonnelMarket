@@ -152,7 +152,7 @@ public class Test {
 		submit.setDeleted(false);
 		submit.setState("refused");
 		
-		sDao.insert(submit);
+		//sDao.insert(submit);
 	}
 	
 	public static void SubmitDelete() {

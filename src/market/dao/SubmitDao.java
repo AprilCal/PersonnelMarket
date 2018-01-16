@@ -75,7 +75,7 @@ public class SubmitDao {
 		return ret;
 		
 	}
-	public void insert(Submit submit) {
+	public void insert(Submit submit) throws SQLException {
 		Connection connection = null;
 		try {
 			connection = DBHelper.getConnection();
@@ -95,6 +95,7 @@ public class SubmitDao {
 			ps.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			throw new SQLException();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -103,6 +104,7 @@ public class SubmitDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			
 		}
 	}
 	

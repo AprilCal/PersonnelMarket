@@ -88,7 +88,6 @@ public class PossessDao {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 //		Possess possess=new Possess();
 //		possess.setCustomerId(2);
 //		possess.setResumeId(3);
@@ -101,6 +100,12 @@ public class PossessDao {
 			 Possess possess=ret.get(i);
 	         System.out.println(possess.getCustomerId()+":"+possess.getResumeId()+":"+possess.getResumeName());
 	    }
+		Possess possess=new Possess();
+		possess.setCustomerId(2);
+		possess.setResumeId(3);
+		possess.setDeleted(false);
+		possess.setResumeName("招聘");
+		//PossessDao pDao=new PossessDao()
 		//pDao.insert(possess);
 		//pDao.delete(1);
 
