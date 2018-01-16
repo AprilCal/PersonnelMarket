@@ -25,7 +25,7 @@
     </ul>
     <div class="tab-content">
         <div id="signin-agile">   
-			<form action="Register" method="post">
+			<form action="SignUp" method="post">
 				
 				<p class="header">用户名</p>
 				<input type="text" name="customerName" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}">

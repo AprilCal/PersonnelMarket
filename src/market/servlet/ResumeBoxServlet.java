@@ -29,7 +29,7 @@ public class ResumeBoxServlet extends HttpServlet {
 		System.out.println("enterpriseId:"+enterpriseId);
 		try {
 			List<ResumeBoxItem> list = rBusi.getList(enterpriseId);
-			request.getSession().setAttribute("list", list);
+			request.getSession().setAttribute("resumeBoxItemlist", list);
 			
 			for(ResumeBoxItem r:list) {
 				System.out.println(r.getRecruitmentTitle());

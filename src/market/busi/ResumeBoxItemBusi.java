@@ -17,19 +17,16 @@ public class ResumeBoxItemBusi {
 	public List<ResumeBoxItem> getList(int enterpriseId) throws SQLException{
 		List<ResumeBoxItem> list = new ArrayList<ResumeBoxItem>();
 		List<Submit> submitList = sDao.getAllSubmitByEnterpriseId(enterpriseId);
-		//for(Submit s : submitList) {
-			//System.out.println(s.getRecruitmentId());
-		//}
 		
 		for(Submit s : submitList) {
-			if(!s.getState().equals("refused")){
+			//if(!s.getState().equals("refused")){
 				ResumeBoxItem item = new ResumeBoxItem();
 				item.setRecruitmentTitle(rDao.selectById(s.getRecruitmentId()).getTitle());
 				item.setResumeId(s.getResumeId());
 				item.setState(s.getState());
 				item.setRecruitmentId(s.getRecruitmentId());
 				list.add(item);
-			}
+			//}
 		}
 		return list;
 	}

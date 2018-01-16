@@ -45,20 +45,24 @@ public class SignUpServlet extends HttpServlet {
 			customer.setPassword(request.getParameter("password"));
 			customer.setTel(request.getParameter("tel"));
 			customer.setMail(request.getParameter("mail"));
-			customer.setMessageNum(11);
+			customer.setMessageNum(0);
 			customer.setDeleted(false);
 			try {
 				cBusi.register(customer, request.getParameter("rePassword"));
 			} catch (Exception e) {
-				request.setAttribute("msg", "！！！！！！！");
+				request.setAttribute("msg", "检查一下");
 				request.getRequestDispatcher("Register.jsp").forward(request, response);
 				e.printStackTrace();
 			}
+			request.setAttribute("msg", "注册成功");
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 		
 		if(identity.equals("enterprise")) {
 			Enterprise enterprise = new Enterprise();
-			enterprise.setEnterpriseName(request.getParameter(""));
+			enterprise.setEnterpriseName(request.getParameter("enterpriseName"));
+			enterprise.setUserName(request.getParameter("userName"));
+			enterprise.setTel(request.getParameter("tel"));
 		}
 		
 	}

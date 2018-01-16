@@ -78,20 +78,42 @@
 	<div id="postcomments">
 	<ol id="comment_list" class="commentlist">  
 	<%
-		List<ResumeBoxItem> list = (List<ResumeBoxItem>)session.getAttribute("list");
+		List<ResumeBoxItem> list = (List<ResumeBoxItem>)session.getAttribute("resumeBoxItemlist");
 		if(list.isEmpty()){
 			out.print("<center>暂时没有收到简历<center>");
 		}
 		else{
 			for(ResumeBoxItem r:list){
-				out.print(
-						"<li class=\"comment-content\">"+
-						"<div class=\"comment-main\">"+
-						"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
-						"<span class=\"time\">(2016/10/28 11:41:03)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
-						"<a href=\"Admit?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+2+"\">接受</a>"+
-						"<a href=\"Refuse?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+2+"\">拒绝</a></p></div></li>"
-						);	
+				if(r.getState().equals("admitted")){
+					out.print(
+							"<li class=\"comment-content\">"+
+							"<div class=\"comment-main\">"+
+							"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
+							"<span class=\"time\">(2016/10/28 11:41:03)(已接受)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+							"<a href=\"Admit?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 接受</a>"+
+							"<a href=\"Refuse?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 拒绝</a></p></div></li>"
+							);
+				}
+				else if(r.getState().equals("refused")){
+					out.print(
+							"<li class=\"comment-content\">"+
+							"<div class=\"comment-main\">"+
+							"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
+							"<span class=\"time\">(2016/10/28 11:41:03)(已拒绝)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+							"<a href=\"Admit?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 接受</a>"+
+							"<a href=\"Refuse?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 拒绝</a></p></div></li>"
+							);
+				}
+				else{
+					out.print(
+							"<li class=\"comment-content\">"+
+							"<div class=\"comment-main\">"+
+							"<p><a class=\"address\" href=\"RecruitmentDetailPage.html\" rel=\"nofollow\" target=\"_blank\">"+r.getRecruitmentTitle()+"</a>"+
+							"<span class=\"time\">(2016/10/28 11:41:03)(未处理)</span><br>收到了一份简历 <a href=\"Resume.html\">点此查看简历</a>"+
+							"<a href=\"Admit?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 接受</a>"+
+							"<a href=\"Refuse?primaryKey="+r.getResumeId()+"_"+enterprise.getEnterpriseId()+"_"+r.getRecruitmentId()+"\"> 拒绝</a></p></div></li>"
+							);
+				}
 			}
 		}
 	%>      
