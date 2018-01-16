@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import market.busi.EnterpriseBusi;
-import market.busi.RecruitmentBusi;
 import market.busi.ResumeBusi;
 import market.busi.SubmitBusi;
 import market.vo.Customer;
@@ -22,8 +20,6 @@ import market.vo.Submit;
  */
 public class DeliverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private RecruitmentBusi rBusi = new RecruitmentBusi();
 	private SubmitBusi sBusi = new SubmitBusi();
 	private EnterpriseBusi eBusi = new EnterpriseBusi();
 	private ResumeBusi resumeBusi = new ResumeBusi();

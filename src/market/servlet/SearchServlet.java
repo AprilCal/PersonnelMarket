@@ -49,7 +49,6 @@ public class SearchServlet extends HttpServlet {
 			if(scope.equals("department")) {
 				//TODO
 				//List<Recruitment> list = (List<Recruitment>) rBusi.get(keyword);
-				
 			}
 			if(scope.equals("title")) {
 				List<Recruitment> list = (List<Recruitment>) rBusi.getRecruitmentByTitle(keyword);
