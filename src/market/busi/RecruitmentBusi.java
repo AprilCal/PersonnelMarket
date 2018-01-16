@@ -1,5 +1,6 @@
 package market.busi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import market.dao.RecruitmentDao;
@@ -8,6 +9,11 @@ import market.vo.Recruitment;
 public class RecruitmentBusi {
 
 	private RecruitmentDao rDao = new RecruitmentDao();
+	
+	
+	public void getRecruitmentByTitle(String title){
+		rDao.selectByVagueTitle(title);
+	}
 	
 	public void release(Recruitment recruitment) throws BusiException{
 		//各属性不可以为空
@@ -28,10 +34,15 @@ public class RecruitmentBusi {
 		return rDao.selectByPosition(position);		
 	}
 	
-	//TODO:
-	public List<Recruitment> getRecruitmentByLocation(String province) throws BusiException{
-		return null;
-		//return rDao.selectByProvince();
+	public List<Recruitment> getRecruitmentByLocation(String location) throws BusiException{
+		List <Recruitment> list1 = new ArrayList<Recruitment>();
+		List <Recruitment> list2 = new ArrayList<Recruitment>();
+		
+		if(!list1.isEmpty()){
+			return list1;
+		}else{
+			return list2;
+		}
 	}
 	
 	public Recruitment getRecruitmentById(int id){
