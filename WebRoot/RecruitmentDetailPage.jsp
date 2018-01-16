@@ -24,6 +24,11 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/nprogress.js"></script>
 <script src="js/jquery.lazyload.min.js"></script>
+<%	request.setCharacterEncoding("UTF-8");
+	if(request.getAttribute("msg")!=null){
+		out.print("<script >alert(\""+request.getAttribute("msg")+"\");</script>");
+	}
+%>
 </head>
 <body class="user-select single">
 <header class="header">

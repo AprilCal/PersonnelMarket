@@ -1,6 +1,8 @@
 package market.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,7 @@ public class DeliverServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		System.out.println("this is deliver servlet");
 		int recruitmentId = Integer.parseInt(request.getParameter("recruitmentId"));
@@ -42,7 +44,7 @@ public class DeliverServlet extends HttpServlet {
 		
 		Submit submit = new Submit();
 		
-		int resumeId ;
+		int resumeId;
 		int enterpriseId;
 		enterpriseId = recruitment.getEnterpriseId();
 		boolean readornot=false;
@@ -58,12 +60,17 @@ public class DeliverServlet extends HttpServlet {
 		submit.setReadOrNot(readornot);
 		submit.setState("unviewed");
 		
-		sBusi.deliver(submit);
-		
-		submit.setEnterpriseId(enterpriseId);
-		submit.setDeleted(false);
-		submit.setCustomerId(customerId);
-
+		//try {
+			//sBusi.deliver(submit);
+			//eBusi.incResuemRecv(enterpriseId);
+		//}catch (SQLException e) {
+			//request.setAttribute("msg", "不可重复投递简历!");
+		//}
+		//finally {
+			request.setCharacterEncoding("UTF-8");
+			request.setAttribute("msg", "简历投递成功!");
+			request.getRequestDispatcher("RecruitmentDetailPage.jsp").forward(request, response);
+		//}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

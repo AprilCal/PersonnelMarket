@@ -1,5 +1,7 @@
 package market.busi;
 
+import java.sql.SQLException;
+
 import market.dao.SubmitDao;
 import market.vo.Submit;
 
@@ -8,7 +10,7 @@ public class SubmitBusi {
 	private SubmitDao sDao = new SubmitDao();
 	
 	//投递简历
-	public void deliver(Submit submit) {
+	public void deliver(Submit submit) throws SQLException{
 		//submit
 		sDao.insert(submit);
 	}

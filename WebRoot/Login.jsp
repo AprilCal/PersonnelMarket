@@ -40,9 +40,9 @@
 				<p class="header">密码</p>
 				<input type="password" name="password" value="111111" onfocus="if(this.value=='111111'){this.value = ''};" onblur="if (this.value == '') {this.value = '111111';}">
 				<input type="text" name="identity" hidden="true" value="enterprise">
-				<%//if(request.getAttribute("msg")!=null){ %>
+				<%if(request.getAttribute("msg")!=null){ %>
 					<font color="red"><%=request.getAttribute("msg") %></font>
-				<%//} %>
+				<%} %>
 				<input type="submit" class="register" value="企业登录">
 				<a href="Register.html">注册?</a>
 				<a href="#">忘记密码?</a>
