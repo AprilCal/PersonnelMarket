@@ -163,29 +163,41 @@ public class ResumeDao {
 		}
 		return ret;
 	}
-//	public static void ResumeInsertTest()
-//	{
-//		Resume resume=new Resume();
-//		resume.setCustomerId(2);
-//		resume.setBirth("2018.1.11");
-//		resume.setEducation("威海荣成市godie中学");
-//		resume.setGraduate("蓝翔技工学校毕业");
-//		resume.setMajor("挖掘机");
-//		resume.setExperiment("c++");
-//		resume.setResumeCont("hhah");
-//		resume.setDeleted(false);
-//		ResumeDao rdao=new ResumeDao();
-//		rdao.insert(resume);
-//	}
-//	public static void ResumeDeleteTest()
-//	{
-//		
-//		ResumeDao rdao=new ResumeDao();
-//		rdao.delete(3);
-//	}
+	public  void ResumeInsertTest()
+	{
+		Resume resume=new Resume();
+		resume.setCustomerId(2);
+		resume.setBirth("2018.1.15");
+		resume.setEducation("霍格沃茨屋里哇啦中学");
+		resume.setGraduate("逸仙魔法学院毕业");
+		resume.setMajor("魔法学");
+		resume.setExperiment("占卜");
+		resume.setResumeCont("hhah");
+		resume.setDeleted(false);
+		ResumeDao rdao=new ResumeDao();
+		rdao.insert(resume);
+	}
+	public  void ResumeDeleteTest()
+	{
+		
+		ResumeDao rdao=new ResumeDao();
+		rdao.delete(3);
+	}
 	public static void main(String[] args) throws SQLException {
+		ResumeDao rDao=new ResumeDao();
+//		Resume resume=new Resume();
+		//resume=rDao.selectById(1);
+//		System.out.print(resume.getBirth()+":"+resume.getExperiment());
+		//rDao.ResumeInsertTest();
+		//rDao.delete(4);
 		//ResumeInsertTest();
 		//ResumeDeleteTest();
+//		List<Resume> ret=rDao.selectAll();
+//				 for (int i = 0; i < ret.size(); i++) {
+//					Resume re=ret.get(i);
+//			         System.out.println(re.getCustomerId()+":"+re.getBirth()+":"+re.getEducation());
+//			        }
+				
 		
 	}
 
