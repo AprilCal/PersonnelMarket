@@ -354,6 +354,13 @@ public class RecruitmentDao {
 		
 	}
 	public static void main(String[] args) throws BusiException {
+		
+		RecruitmentDao rDao = new RecruitmentDao();
+		
+		List<Recruitment> list = rDao.selectByVagueTitle("中民");
+		for(Recruitment r:list) {
+			System.out.println(r);
+		}
 //		Recruitment rs=new Recruitment();
 //		rs.setTitle("南华国际招收有志于软件开发的专业非专业毕业生!");
 //		rs.setExperiment("较为丰富simple");

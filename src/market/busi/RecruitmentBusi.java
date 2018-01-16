@@ -11,8 +11,8 @@ public class RecruitmentBusi {
 	private RecruitmentDao rDao = new RecruitmentDao();
 	
 	
-	public void getRecruitmentByTitle(String title){
-		rDao.selectByVagueTitle(title);
+	public List<Recruitment> getRecruitmentByTitle(String title){
+		return rDao.selectByVagueTitle(title);
 	}
 	
 	public void release(Recruitment recruitment) throws BusiException{
@@ -34,9 +34,16 @@ public class RecruitmentBusi {
 		return rDao.selectByPosition(position);		
 	}
 	
+	public List<Recruitment> getRecruitmentByDepartment(String department){
+		return null;
+	}
+	
 	public List<Recruitment> getRecruitmentByLocation(String location) throws BusiException{
 		List <Recruitment> list1 = new ArrayList<Recruitment>();
 		List <Recruitment> list2 = new ArrayList<Recruitment>();
+		
+		list1 = rDao.selectByProvince(location);
+		list2 = rDao.selectByCity(location);
 		
 		if(!list1.isEmpty()){
 			return list1;

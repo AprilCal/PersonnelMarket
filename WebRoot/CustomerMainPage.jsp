@@ -96,24 +96,23 @@
 </header>
 <section class="container">
     <div class="widget widget_search" >
-	<form class="navbar-form" action="Search" method="post" align="center">
-	<select name="scope" >
-					<option value="all">搜索范围</option>
-					<option value="department">部门</option>
-					<option value="position">职位</option>
-					<option value="location">地区</option>
-					<option value="title">标题</option>
-	</select>
-	<div class="input-group">
-		<input type="text" name="keyword" class="form-control" size="140" placeholder="请输入关键字" maxlength="24" autocomplete="off">
-		<input type="text" name="identity" hidden="true" value="customer">
-		<span class="input-group-btn">
-		<button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-		</span> 
+		<form class="navbar-form" action="Search" method="post" align="center">
+			<select name="scope" >
+				<option value="all">搜索范围</option>
+				<option value="department">部门</option>
+				<option value="position">职位</option>
+				<option value="location">地区</option>
+				<option value="title">标题</option>
+			</select>
+			<div class="input-group">
+				<input type="text" name="keyword" class="form-control" size="140" placeholder="请输入关键字" maxlength="24" autocomplete="off">
+				<input type="text" name="identity" hidden="true" value="customer">
+				<span class="input-group-btn">
+					<button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
+				</span> 
+			</div>
+		</form>
 	</div>
-	</form>
-  </div>
-
 <% 
 	List<Recruitment> recruitmentList = (List<Recruitment>)session.getAttribute("recruitmentList");
 	if(recruitmentList.isEmpty()){
