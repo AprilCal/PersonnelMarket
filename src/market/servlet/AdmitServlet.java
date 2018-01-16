@@ -36,10 +36,10 @@ public class AdmitServlet extends HttpServlet {
 		int resumeId = Integer.parseInt(array[0]);
 		int enterpriseId = Integer.parseInt(array[1]);
 		int recruitmentId = Integer.parseInt(array[2]);
-		sBusi.delete(resumeId, enterpriseId, recruitmentId);
+		sBusi.admitResume(resumeId, enterpriseId, recruitmentId);
 		eBusi.decResumeRecv(enterpriseId);
 		
-		request.setAttribute("msg", "删除成功!");
+		request.setAttribute("msg", "已接受!");
 		request.getRequestDispatcher("ResumeBox.jsp").forward(request, response);
 	}
 
