@@ -353,11 +353,52 @@ public class RecruitmentDao {
 		}
 		
 	}
+	/*根据部门查询*/
+	public List<Recruitment> selectByDepartment(String department){
+		Connection conn = null;
+		List<Recruitment> ret = new ArrayList<Recruitment>();
+		try {
+			conn = DBHelper.getConnection();
+	
+			String sql = "select * from recruitment where department=? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, department);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Recruitment recruitment = new Recruitment();
+				recruitment.setRecruitmentId(rs.getInt("recruitmentId"));
+				recruitment.setTitle(rs.getString("title"));
+				recruitment.setTime(rs.getString("time"));
+				recruitment.setDepartment(rs.getString("department"));
+				recruitment.setPosition(rs.getString("position"));
+				recruitment.setEnterpriseId(rs.getInt("enterpriseId"));
+				recruitment.setSalary_low(rs.getInt("salary_low"));
+				recruitment.setSalary_high(rs.getInt("salary_high"));
+				recruitment.setExperiment(rs.getString("experiment"));
+				recruitment.setPositionDescription(rs.getString("positionDescription"));
+				recruitment.setProvince(rs.getString("province"));
+				recruitment.setCity(rs.getString("city"));
+				recruitment.setTechStack(rs.getString("techStack"));
+				recruitment.setPositionRequirment(rs.getString("positionRequirement"));
+				recruitment.setDeleted(rs.getBoolean("deleted"));
+				ret.add(recruitment);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
 	public static void main(String[] args) throws BusiException {
 		
 		RecruitmentDao rDao = new RecruitmentDao();
 		
-		List<Recruitment> list = rDao.selectByVagueTitle("中民");
+		List<Recruitment> list = rDao.selectByDepartment("运营");
 		for(Recruitment r:list) {
 			System.out.println(r);
 		}

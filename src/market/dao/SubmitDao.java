@@ -10,6 +10,40 @@ import market.vo.Submit;
 
 public class SubmitDao {
 	
+	public Submit selectSubmitByPrimaryKey(int resumeId,int enterpriseId,int recruitmentId){
+		Connection conn = null;
+		try {
+			conn = DBHelper.getConnection();
+	
+			String sql = "select * from submit where resumeId=? and enterpriseId=? and recruitmentId = ? and deleted=0";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1,resumeId);
+			ps.setInt(2, enterpriseId);
+			ps.setInt(3, recruitmentId);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				Submit submit=new Submit();
+				submit.setResumeId(rs.getInt("resumeId"));
+				submit.setEnterpriseId(rs.getInt("enterpriseId"));
+				submit.setRecruitmentId(rs.getInt("recruitmentId"));
+				submit.setReadOrNot(rs.getBoolean("readornot"));
+				submit.setDeleted(rs.getBoolean("deleted"));
+				submit.setState(rs.getString("state"));
+				submit.setCustomerId(rs.getInt("customerId"));
+				return submit;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 	public List<Submit> getAllSubmitByEnterpriseId(int id) throws SQLException
 	{
 		Connection conn = null;
@@ -112,9 +146,9 @@ public class SubmitDao {
 		Connection conn = null;
 		try {
 			conn = DBHelper.getConnection();
-			String sql = "UPDATE `personnel_market`.`submit` SET `deleted`='1' WHERE"+
+			String sql = "DELETE FROM `personnel_market`.`submit` WHERE"+
 					" `resumeId`=? and `enterpriseId`=? and `recruitmentId`=?;";
-			
+			//DELETE FROM `personnel_market`.`submit` WHERE `resumeId`='1' and`enterpriseId`='2' and`recruitmentId`='3';
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, resumeId);
 			ps.setInt(2, enterpriseId);
@@ -181,7 +215,10 @@ public class SubmitDao {
 	}
 	
 	public static void main(String[] args) {
-//		SubmitDao sDao = new SubmitDao();
+		SubmitDao sDao = new SubmitDao();
+		//sDao.delete(1, 2, 2);
+		//Submit submit=sDao.selectSubmitByPrimaryKey(1,2,2);
+		//System.out.println(submit.getState());
 //		Submit submit = new Submit();
 //		submit.setResumeId(1);
 //		submit.setEnterpriseId(2);
